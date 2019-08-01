@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let city = ''
     // Documentation API: https://openweathermap.org/api
-    const apiKeyWeather = "&appid=abb73e61ebb1b7746ebb817ea591d018";
+    const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
     const countryCode = {
             'AF': 'Afghanistan',
             'AX': 'Aland Islands',
@@ -252,30 +252,28 @@ $(document).ready(function(){
 
     console.log(countryCode.lenght);
     for (let [key, value] of Object.entries(countryCode)) {
-        $("#county-list").append(`<option>${value}</option>`)
+        $("#country-list").append(`<option value=${key}>${value}</option>`)
     }
 
-    // $("#submit").click(function(e){
-    //     e.preventDefault()
-    //     const city = $("#cityInputName").val().trim();
-    //     let countryCode = []
-    //     $.ajax({
-    //        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "," countryCode + apiKeyWeather,
-    //        method: "GET",
-    //     }).then(function(response){
-    //         console.log(response);
-    //         $("#city-name").text(`City Name: ${response.name}`);
-    //         $("#city-id").text(`City ID: ${response.id}`);
-    //         $("#min-temp").text(`Min Temp.: ${response.main.temp_min}`);
-    //         $("#max-temp").text(`Max Temp.: ${response.main.temp_max}`);
 
-    //         $.ajax({
-    //             url: "http://api.openweathermap.org/data/2.5/forecast/daily?id=" + response.id + apiKeyWeather,
-    //         }).then(function(weatherByID){
-    //             console.log(weatherByID);
-    //         })
-    //     }); // end ajax Weather
-    // })
+    $("#submit").click(function(e){
+        e.preventDefault()
+        const city = $("#cityInputName").val().trim();
+        const countryCode = $("#country-list").val();
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKeyWeather}`;
+        console.log("City: " + city + "/  Country:" + countryCode);
+        $.ajax({
+           url: weatherURL,
+           method: "GET",
+        }).then(function(response){
+            console.log(response);
+            $("#city-name").text(`City Name: ${response.name}`);
+            $("#city-id").text(`City ID: ${response.id}`);
+            $("#min-temp").text(`Min Temp.: ${response.main.temp_min}`);
+            $("#max-temp").text(`Max Temp.: ${response.main.temp_max}`);
+
+        }); // end ajax Weather
+    })
  
 
 
