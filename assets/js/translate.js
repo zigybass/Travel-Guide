@@ -33,14 +33,11 @@ $("#translateButton").on("click", function () {
 });
 
 function translation(inputText, abbreviationToAPI) {
-
     const data = {
         "text": [inputText],
         "model_id": abbreviationToAPI
     };
-
     const apiKey = "BCXmk2ySCo-GQzFNHSw3MoWixoUQljQwvzPTme1hV0Dl";
-
     const settings = {
         "url": "https://cors-anywhere.herokuapp.com/https://gateway-wdc.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
         "method": "POST",
@@ -50,7 +47,6 @@ function translation(inputText, abbreviationToAPI) {
         },
         "data": JSON.stringify(data)
     }
-
     $.ajax(settings).then(function (response) {
         $("#outputTextArea").append(response.translations[0].translation);
     });
