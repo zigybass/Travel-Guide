@@ -49,5 +49,6 @@ function translation(inputText, abbreviationToAPI) {
     }
     $.ajax(settings).then(function (response) {
         $("#outputTextArea").append(response.translations[0].translation);
+        
     });
 };
