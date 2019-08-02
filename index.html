@@ -42,22 +42,22 @@
     <div class="container">
         <div class="row">
             <div class="col-10">
-                    <form>
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Type City</label>
-                              <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
-                            </div>
-                            <div class="form-group">
-                            <label for="countryname">Select Country</label>
-                                    <select class="form-control" id="countrylist">
-                                        <option>France</option>
-                                        <option>Switzerland</option>
-                                        <option>Canada</option>
-                                        <option>Mexico</option>
-                                    </select>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Type City</label>
+                        <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
+                    </div>
+                    <div class="form-group">
+                        <label for="countryname">Select Country</label>
+                        <select class="form-control" id="countrylist">
+                            <option>France</option>
+                            <option>Switzerland</option>
+                            <option>Canada</option>
+                            <option>Mexico</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
             <div class="col-2">
                 <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
@@ -113,8 +113,6 @@
         </div>
     </div>
 
-
-
     <!-- JQuery 3.1  -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -129,9 +127,24 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-
     <!-- Project JS  -->
     <script src="./assets/js/main.js"></script>
+
+
+    <select class="custom-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
+    <select class="custom-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+
 </body>
 
 </html>
