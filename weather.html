@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Team Read</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"> <h1>Weather Page</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-11">
+                <form>
+                    <div class="form-group">
+                      <label>City Name</label>
+                      <input type="text" class="form-control" id="cityInputName" placeholder="Enter city name">
+                    </div>
+                    <div class="form-group">
+                        <label>Select Country</label>
+                        <select id="country-list">
+
+                        </select>
+                    </div>
+                    <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                </form>             
+            </div>
+        </div>
+        <div class="row">
+            <div id="api-info" class="col-12">
+                <h2 id="city-name"><span></span></h2>
+                <p id="city-id"></p>
+                <p id="min-temp"></p>
+                <p id="max-temp"></p>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <!-- JQuery 3.1  -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+    <!-- Boostrap JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <!-- Project JS  -->
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/weather.js"></script>
+</body>
+</html>
