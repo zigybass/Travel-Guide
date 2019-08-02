@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $(".col-12").attr("class", "text-center");
 
 
     // Currency Exchange API
@@ -8,7 +7,6 @@ $(document).ready(function(){
     let xchangedCurrency;
     // let userCurrencyNum = countryMap.ES;
     // let targetCurrencyCode = exchangeRatios.EUR;
-    let data;
     // How do we capture user input and make sure it's accessible by API
     let targetSearch = "&base="; // + user input;
     const baseUrl = "https://openexchangerates.org/api/latest.json?";
@@ -25,19 +23,12 @@ $(document).ready(function(){
         return userCountryCode / targetCurrencyCode;
     }
 
-    function mapCountry (x, y) {
-        let codeOne = countryMap.x;
-
-    };
-    // currencyConverter(userCountryCode, targetCurrencyCode);
 
 
 
 
 
-
-
-/*
+/*   // AJAX request for daily currency exchange rates.
     $.ajax({
         url: "https://openexchangerates.org/api/latest.json?" + apiId,
         method: "GET",
@@ -50,7 +41,7 @@ $(document).ready(function(){
 
 
 
-
+    // AJAX request data for exchange rates. All rates are compared to USD.
     const exchangeRatios = { AED: 3.672978,
     AFN: 78.9545,
     ALL: 109.175,
@@ -223,8 +214,8 @@ $(document).ready(function(){
     ZMW: 12.877607,
     ZWL: 322.000001,
     }
-
-    const countryMap = {
+    // 2-letter country ID matched to corresponding currency.
+    const countryIdToCurrencyId = {
         AD: "EUR",
         AE: "AED",
         AF: "AFN",
@@ -473,21 +464,38 @@ $(document).ready(function(){
         ZM: "ZMK",
         ZW: "ZWD"
     }
+    // Array of Currency IDs for form
+    const currencyId = Object.keys(exchangeRatios);
+    console.log(currencyId);
+
+    // Appends country IDs into dropdown for currency
+    function assignCurr (arr) {
+        for (let i = 0; i < arr.length; i++) {
+            const aTag = $("<option>");
+            aTag.text((arr[i]));
+            $("#currency").append(aTag);
+        }
+    }
+
+    assignCurr(currencyId);
+
+
 
     let codeToMoney;
-    function mapCountry (x) {
-        codeToMoney = countryMap.ES;
-    };
+    let countryId = $("#countrylist").val(); //this value should be equal to 2-Letter country code. We need to match IP-API code to this variable.
+    // Line 481 mnatches country ID to currency ID.
+    codeToMoney = countryIdToCurrencyId.countryId;
 
+    // This function 
     function currencyConverter () {
         xchangedCurrency = userCountryCode * exchangeRatios[codeToMoney];
         return xchangedCurrency;
     };
 
-    mapCountry();
-    console.log(codeToMoney)
-    currencyConverter();
-    console.log(xchangedCurrency)
+
+
+    //console.log(xchangedCurrency)
+    //console.log($("#countrylist").val());
 
     // console.log(currencyConverter(userCountryCode, targetCurrencyCode));
     
