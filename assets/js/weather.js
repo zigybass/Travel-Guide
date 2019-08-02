@@ -261,28 +261,36 @@ $(document).ready(function(){
         const city = $("#cityInputName").val().trim();
         const countryCode = $("#country-list").val();
         const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&appid=${apiKeyWeather}`;
         console.log("City: " + city + "/  Country:" + countryCode);
+        
+        
+        localStorage.setItem("City", city);
+        localStorage.setItem("Country", countryCode);
+        
+        console.log(localStorage.getItem("city"));
+
         $.ajax({
            url: weatherURL,
            method: "GET",
         }).then(function(response){
             console.log(response);
+            console.log(weatherURL);
             $("#city-name").text(`City Name: ${response.name}`);
             $("#city-id").text(`City ID: ${response.id}`);
             $("#min-temp").text(`Min Temp.: ${response.main.temp_min}`);
             $("#max-temp").text(`Max Temp.: ${response.main.temp_max}`);
 
-        }); // end ajax Weather
+        });
+
+        $.ajax({
+            url: weekForecastURL,
+            method: "GET",
+         }).then(function(forecast){
+             console.log(forecast);
+             console.log(weekForecastURL);
+         });
     })
  
-
-
-
-    // $.ajax({
-    //    url: "api.openweathermap.org/data/2.5/forecast/daily?q=Atlanta&mode=xml&units=metric&cnt=7",
-    //    method: "GET",
-    // }).then(function(weather){
-    //     console.log(weather);
-    // }); // end ajax Weather
    
 }); // end document.ready
