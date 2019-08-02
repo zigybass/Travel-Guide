@@ -1,7 +1,6 @@
 $(document).ready(function(){
     let city = ''
     // Documentation API: https://openweathermap.org/api
-    const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
     const countryCode = {
             'AF': 'Afghanistan',
             'AX': 'Aland Islands',
@@ -258,8 +257,13 @@ $(document).ready(function(){
 
     $("#submit").click(function(e){
         e.preventDefault()
-        const city = $("#cityInputName").val().trim();
+        city = $("#cityInputName").val().trim();
         const countryCode = $("#country-list").val();
+        apiWeather();
+    })
+    
+    function apiWeather(){
+        const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
         const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${apiKeyWeather}`;
         const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city},${countryCode}&appid=${apiKeyWeather}`;
         console.log("City: " + city + "/  Country:" + countryCode);
@@ -290,7 +294,5 @@ $(document).ready(function(){
              console.log(forecast);
              console.log(weekForecastURL);
          });
-    })
- 
-   
+    }
 }); // end document.ready
