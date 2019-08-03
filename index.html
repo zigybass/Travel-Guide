@@ -90,21 +90,18 @@
                         <h6 class="card-subtitle mb-2 text-muted">Currency for the country</h6>
                         <p class="card-text">
                             <!--Currency Form below-->
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Currency</button>
-                                  <div class="dropdown-menu">
-                                    
-                                  </div>
-                                </div>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                              </div>
-                              <select class="form-control" id="currency">
+                            <select class="form-row currency">
                                     <option>Select Currency</option>
                                   </select>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                  <input type="text" class="form-row" id="base" aria-label="Text input with dropdown button">
+                              <select class="form-row currency">
+                                    <option>Select Currency</option>
+                                  </select>
+                                <input type="text" class="form-row" id="target" aria-label="Text input with dropdown button">
                               </div>
+                              <button type="button" class="btn btn-info" id="convert">Convert</button>
                               <button type="button" class="btn btn-secondary btn-sm">Switch Currencies</button>
+                              <!--End Currency Form-->
                         </p>
                     </div>
                 </div>
