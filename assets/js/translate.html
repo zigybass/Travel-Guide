@@ -305,7 +305,7 @@
                             <label id="label-output-language" for="exampleFormControlTextarea1"></label>
                             <textarea readonly class="form-control bg-white" id="outputTextArea" rows="3"></textarea>
                         </div>
-                        <button type="button" class="btn btn-secondary btn-lg btn-block"
+                        <button type="button" class="btn btn-primary btn-lg btn-block"
                             id="translateButton">Translate</button>
                     </div>
                 </div>
@@ -315,21 +315,26 @@
                 <div class="col">
                         <div class="card" >
                                 <div class="card-header">
-                                 Your previous translations 
+                                 <div class="row">
+                                  <div class="col"> <h4>Your previous translations </h4></div>
+                                  <div class="col"><button type="button" class="btn btn-danger" id="clearAllTranslations">Clear All Translations!</button> </div>
+                                 </div>     
                                 </div>
-                                <ul class="list-group list-group-flush" id="yourPreviousTranslations">
+                                <ul class="list-group list-group-flush card-header listenerButton">
                                   <li> 
                                           <div class="form-row">
                                         <div class="form-group col-md-6">
-                                          <label for="inputEmail4">Input Language</label>
+                                          <label for="inputEmail4"><h5>Input Language</h5></label>
                                           <p id="previousTranslationInput"></p>
                                         </div>
                                         <div class="form-group col-md-6">
-                                          <label for="inputPassword4">Output Language</label>
+                                          <label for="inputPassword4"><h5>Output Language</h5></label>
                                           <p id="previousTranslationOutput"></p>
                                         </div>
                                       </div>
                                  </li>
+                                 <ul class="list-group list-group-flush card-header" id="yourPreviousTranslations">
+                                               
                                 </ul>
                               </div>
                 </div>

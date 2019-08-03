@@ -3,16 +3,50 @@ let inputLanguageSelectionAbbreviation;
 let outputLanguageSelectionAbbreviation;
 let inputReady = false;
 let outputReady = false;
-const phraseAndTranslation = [];
+let induvidualTranslationValue = 0;
+let stringifyVersion;
+let phraseAndTranslation = [];
 
-myTranslationData()
-displaySavedData(phraseAndTranslation);
-function myTranslationData() {
-const getData = localStorage.getItem("yourTranslations")
-const translations = JSON.parse(getData);
-backToPhraseAndTranslation(translations);
+
+if (localStorage.getItem("ourArrayToString") != null) {
+    localStorageItems();
 };
 
+
+function localStorageItems() {
+    dataFromStorage = localStorage.getItem("ourArrayToString");
+    dataFromStorageParse = JSON.parse(dataFromStorage);
+    for (let x = 0; x < dataFromStorageParse.length; x++) {
+        appending(dataFromStorageParse[x].phrase, dataFromStorageParse[x].translation)
+    }
+};
+
+$("#clearAllTranslations").on("click", function () {
+    if (localStorage.getItem("ourArrayToString") != null) {
+        localStorage.clear();
+        induvidualTranslationValue = 0;
+        stringifyVersion = null;
+        phraseAndTranslation = [];
+        $('#yourPreviousTranslations').empty();
+
+    };
+})
+
+$(document).on('click', '#deleteIndividual', function () {
+    induvidualTranslationValue = 0;
+    stringifyVersion = null;
+    phraseAndTranslation = [];
+    console.log($(this).attr("value"))
+    const dataFromStorage = localStorage.getItem("ourArrayToString");
+    let parseDataFromStorage = JSON.parse(dataFromStorage);
+    parseDataFromStorage.splice($(this).attr("value"), 1);
+    const backToString = JSON.stringify(parseDataFromStorage)
+    console.log(backToString);
+    localStorage.clear()
+    saveStringifyVersion(backToString);
+    $('#yourPreviousTranslations').empty();
+    localStorageItems();
+});
 
 $(".dropdown-input-language").on("click", function () {
     let inputLanguageSelection = $(this).attr("id");
@@ -37,73 +71,99 @@ $("#translateButton").on("click", function () {
     if (inputReady && outputReady == true) {
         const abbreviationToAPI = (inputLanguageSelectionAbbreviation + "-" + outputLanguageSelectionAbbreviation);
         if (inputText != "") {
-            //translation(inputText, abbreviationToAPI);
-            appendingAllPreviousTrans(inputText);
-            arryParce(phraseAndTranslation);
+            translation(inputText, abbreviationToAPI);
+
         }
     }
 });
 
-
-function displaySavedData (phraseAndTranslation)
-{
-    for (let x = 0; x<phraseAndTranslation.length;x++)
-    {
-       console.log(phraseAndTranslation[x].phrase)
+function translation(inputText, abbreviationToAPI) {
+    const data = {
+        "text": [inputText],
+        "model_id": abbreviationToAPI
+    };
+    const apiKey = "BCXmk2ySCo-GQzFNHSw3MoWixoUQljQwvzPTme1hV0Dl";
+    const settings = {
+        "url": "https://cors-anywhere.herokuapp.com/https://gateway-wdc.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
+        "method": "POST",
+        "headers": {
+            "Content-Type": "application/json",
+            "Authorization": `Basic ${btoa(`apikey:${apiKey}`)}`
+        },
+        "data": JSON.stringify(data)
     }
-}
+    $.ajax(settings).then(function (response) {
+        $("#outputTextArea").append(response.translations[0].translation);
+        appending(inputText, response.translations[0].translation);
+
+    });
+
+};
 
 
 
-function appendingAllPreviousTrans(inputText) {
-    $('#yourPreviousTranslations').append(`
-    <div class="form-row">
+function appending(inputText, response) {
+
+    $('#yourPreviousTranslations').prepend(`
+    <div class="form-row individual-translations" id="${induvidualTranslationValue}" >
         <div class="form-group col-md-6">
             <p id="previousTranslationInput">${inputText}</p>
         </div>
         <div class="form-group col-md-6">
-            <p id="previousTranslationOutput">${inputText}</p>
+        <div class="row">   
+        <div class="col col-md-8"><p id="previousTranslationOutput">${response}</p></div>
+        <div class="col"><button type="button" class="btn btn-danger individual-delete-button" id="deleteIndividual" value="${induvidualTranslationValue}" >Delete</button> </div>
+        </div>
         </div>
     </div>
-    `);
-    toArrayAndStringigy(inputText);
+    `)
+    induvidualTranslationValue++;
+
+    toArrayAndStringify(inputText, response);
 };
 
-function toArrayAndStringigy(inputText) {
+
+
+function saveStringifyVersion(stringifyVersion) {
+    localStorage.clear();
+    localStorage.setItem('ourArrayToString', stringifyVersion);
+};
+
+function toArrayAndStringify(inputText, response) {
     const translationObject = {
         phrase: inputText,
-        translation: inputText
+        translation: response
     };
-    phraseAndTranslation.push(translationObject);
-    localStorage.setItem("yourTranslations", JSON.stringify(phraseAndTranslation))
-}
+    if (typeof (stringifyVersion) === "string") {
+        JSON.parse(stringifyVersion);
+        willaddtoarray(translationObject);
+        console.log(stringifyVersion);
+        console.log("the above is at toarrayandstring at if ")
+    }
+    else {
+        willaddtoarray(translationObject);
+        console.log(stringifyVersion);
+        console.log("the above is at toarrayandstring at else ")
+    }
+};
+function willaddtoarray(object) {
+    phraseAndTranslation.push(object);
+    stringifyVersion = JSON.stringify(phraseAndTranslation);
+    console.log(stringifyVersion);
+    console.log("the above is at willaddtoarray")
+    saveStringifyVersion(stringifyVersion);
+};
 
-
-function backToPhraseAndTranslation(array){
-    for (let x = 0; x<array.length;x++)
-    {
+function backToPhraseAndTranslation(array) {
+    for (let x = 0; x < array.length; x++) {
         phraseAndTranslation.push(array[x]);
+        console.log("localstorage translationdata backtophrase");
     }
 }
 
-
-
-// function translation(inputText, abbreviationToAPI) {
-//     const data = {
-//         "text": [inputText],
-//         "model_id": abbreviationToAPI
-//     };
-//     const apiKey = "BCXmk2ySCo-GQzFNHSw3MoWixoUQljQwvzPTme1hV0Dl";
-//     const settings = {
-//         "url": "https://cors-anywhere.herokuapp.com/https://gateway-wdc.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
-//         "method": "POST",
-//         "headers": {
-//             "Content-Type": "application/json",
-//             "Authorization": `Basic ${btoa(`apikey:${apiKey}`)}`
-//         },
-//         "data": JSON.stringify(data)
-//     }
-//     $.ajax(settings).then(function (response) {
-//         $("#outputTextArea").append(response.translations[0].translation);
-//     });
-// };
+function displaySavedData(phraseAndTranslation) {
+    for (let x = 0; x < phraseAndTranslation.length; x++) {
+        appending(phraseAndTranslation[x].phrase, phraseAndTranslation[x].translation)
+        console.log("@displaySavedData");
+    }
+}
