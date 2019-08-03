@@ -23,35 +23,85 @@ $(document).ready(function(){
             console.log(forecast.list)
             const days = {};
 
+            // Create an array of the information per day
             forecast.list.forEach(function(element) {
-               const date = element.dt_txt.split(" ").shift(); //Date
-               const hour = element.dt_txt.split(" ").pop(); // Hour
-            //    console.log(date); // Date
-            //    console.log(hour); // Hour
-                if (!days[date]){
-                    days[date] = [element]
+               const fullDate = new Date(element.dt * 1000); 
+               const eachDay = fullDate.getDate();
+                if (!days[eachDay]){
+                    days[eachDay] = [element]
                 } else {
-                    days[date].push(element);
+                    days[eachDay].push(element);
                 }
             });
-            console.log(days);
+
 
             for (let [key, value] of Object.entries(days)) {
+                const date = new Date(value[0].dt * 1000); 
+                const dateString = date.toDateString()
                 $("#forecast").append(` <div class="day col-12">
-                                                <h3>Day: ${key} </h3>
-                                                <div class="day-detail-${key} row"></div>
-                                        </div>`);
-                
+                                            <h3>${dateString} </h3>
+                                            <div class="day-detail-${key} row"></div>
+                                            <canvas id="chart${key}" width="500px" height="100px"></canvas>
+                                        </div>`
+                                     );
+                const hoursPerDay = []; // Labels for Chart
+                const tempPerHour = []; // Data for Chart
+
+
                 value.forEach(function(element){
+                    const date = new Date(element.dt * 1000); 
+                    const hour = date.getHours() > 12 ? date.getHours() - 12 + "pm" : date.getHours() + "am";
                     $(`.day-detail-${key}`).append(`<div class="hour-forecast col">
                                                         <p>${element.weather[0].description}</p>
                                                         <p>Max T.: ${element.main.temp_max}</p>
-                                                        <p>${element.dt_txt.split(" ").pop()}</p>
+                                                        <p>${hour}</p>
                                                     </div>`)
-                })
+                    hoursPerDay.push(hour);                                
+                    tempPerHour.push(element.main.temp_max);                                
+                });
+
+                console.log(hoursPerDay);
+                console.log(tempPerHour);
+
+                const ctx = $(`#chart${key}`);
+                const chart3 = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: hoursPerDay,
+                        datasets: [{
+                            label: null,
+                            data: tempPerHour,
+                            backgroundColor: 'rgba(66, 206, 201, 0.2)',
+                            borderColor: 'rgba(66, 206, 201, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        legend:{
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    display: false
+                                },
+                                gridLines: {
+                                    display: false,
+                                    zeroLineColor: 'rgba(255,255,255,0)',
+                                    zeroLineWidth: 0	
+                                }
+                            }],
+                           
+                           
+                        }
+                    }
+                });
 
 
             }
 
-         }); 
+         }); // end ajax
+        
+        
 }); // end document.ready

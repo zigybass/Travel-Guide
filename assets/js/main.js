@@ -1,9 +1,4 @@
 $(document).ready(function(){
-<<<<<<< HEAD
-=======
-    $(".col-12").attr("class", "text-center");
-
-
     // Currency Exchange API
 
     let userCountryCode = 1;
@@ -493,6 +488,5 @@ $(document).ready(function(){
 
     // console.log(currencyConverter(userCountryCode, targetCurrencyCode));
     
->>>>>>> a558be4275727e5e714379c40fbbf361f4f60263
     
 }); // end document.ready
