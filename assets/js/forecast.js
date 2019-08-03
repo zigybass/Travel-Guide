@@ -1,7 +1,7 @@
 $(document).ready(function(){
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
-        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Santiago,cl&units=imperial&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=Santiago,cl&units=imperial&appid=${apiKeyWeather}`;
 
         $.ajax({
            url: weatherURL,
