@@ -3,6 +3,16 @@ let inputLanguageSelectionAbbreviation;
 let outputLanguageSelectionAbbreviation;
 let inputReady = false;
 let outputReady = false;
+const phraseAndTranslation = [];
+
+myTranslationData()
+displaySavedData(phraseAndTranslation);
+function myTranslationData() {
+const getData = localStorage.getItem("yourTranslations")
+const translations = JSON.parse(getData);
+backToPhraseAndTranslation(translations);
+};
+
 
 $(".dropdown-input-language").on("click", function () {
     let inputLanguageSelection = $(this).attr("id");
@@ -27,28 +37,73 @@ $("#translateButton").on("click", function () {
     if (inputReady && outputReady == true) {
         const abbreviationToAPI = (inputLanguageSelectionAbbreviation + "-" + outputLanguageSelectionAbbreviation);
         if (inputText != "") {
-            translation(inputText, abbreviationToAPI);
+            //translation(inputText, abbreviationToAPI);
+            appendingAllPreviousTrans(inputText);
+            arryParce(phraseAndTranslation);
         }
     }
 });
 
-function translation(inputText, abbreviationToAPI) {
-    const data = {
-        "text": [inputText],
-        "model_id": abbreviationToAPI
-    };
-    const apiKey = "BCXmk2ySCo-GQzFNHSw3MoWixoUQljQwvzPTme1hV0Dl";
-    const settings = {
-        "url": "https://cors-anywhere.herokuapp.com/https://gateway-wdc.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json",
-            "Authorization": `Basic ${btoa(`apikey:${apiKey}`)}`
-        },
-        "data": JSON.stringify(data)
+
+function displaySavedData (phraseAndTranslation)
+{
+    for (let x = 0; x<phraseAndTranslation.length;x++)
+    {
+       console.log(phraseAndTranslation[x].phrase)
     }
-    $.ajax(settings).then(function (response) {
-        $("#outputTextArea").append(response.translations[0].translation);
-        
-    });
+}
+
+
+
+function appendingAllPreviousTrans(inputText) {
+    $('#yourPreviousTranslations').append(`
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <p id="previousTranslationInput">${inputText}</p>
+        </div>
+        <div class="form-group col-md-6">
+            <p id="previousTranslationOutput">${inputText}</p>
+        </div>
+    </div>
+    `);
+    toArrayAndStringigy(inputText);
 };
+
+function toArrayAndStringigy(inputText) {
+    const translationObject = {
+        phrase: inputText,
+        translation: inputText
+    };
+    phraseAndTranslation.push(translationObject);
+    localStorage.setItem("yourTranslations", JSON.stringify(phraseAndTranslation))
+}
+
+
+function backToPhraseAndTranslation(array){
+    for (let x = 0; x<array.length;x++)
+    {
+        phraseAndTranslation.push(array[x]);
+    }
+}
+
+
+
+// function translation(inputText, abbreviationToAPI) {
+//     const data = {
+//         "text": [inputText],
+//         "model_id": abbreviationToAPI
+//     };
+//     const apiKey = "BCXmk2ySCo-GQzFNHSw3MoWixoUQljQwvzPTme1hV0Dl";
+//     const settings = {
+//         "url": "https://cors-anywhere.herokuapp.com/https://gateway-wdc.watsonplatform.net/language-translator/api/v3/translate?version=2018-05-01",
+//         "method": "POST",
+//         "headers": {
+//             "Content-Type": "application/json",
+//             "Authorization": `Basic ${btoa(`apikey:${apiKey}`)}`
+//         },
+//         "data": JSON.stringify(data)
+//     }
+//     $.ajax(settings).then(function (response) {
+//         $("#outputTextArea").append(response.translations[0].translation);
+//     });
+// };
