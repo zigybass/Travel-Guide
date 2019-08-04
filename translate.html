@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+        <title>Team Read</title>
+</head>
+
+<body>
+        <div class="container">
+                <div class="row">
+                        <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                        <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle m-3" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Language selection
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <div class="form-group">
+                                                                <select multiple class="form-control"
+                                                                        id="exampleFormControlSelect2">
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Afrikaans" data-type="af">
+                                                                                <a class="dropdown-item">Afrikaans</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Albanian" data-type="sq">
+                                                                                <a class="dropdown-item">Albanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Arabic" data-type="ar">
+                                                                                <a class="dropdown-item">Arabic</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Armenian" data-type="hy">
+                                                                                <a class="dropdown-item">Armenian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Azerbaijani" data-type="az">
+                                                                                <a class="dropdown-item">Azerbaijani</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Bashkir" data-type="ba">
+                                                                                <a class="dropdown-item">Bashkir</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Basque" data-type="eu">
+                                                                                <a class="dropdown-item">Basque</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Belarusian" data-type="be">
+                                                                                <a class="dropdown-item">Belarusian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Bengali" data-type="bn">
+                                                                                <a class="dropdown-item">Bengali</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Bosnian" data-type="bs">
+                                                                                <a class="dropdown-item">Bosnian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Bulgarian" data-type="bg">
+                                                                                <a class="dropdown-item">Bulgarian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Central Khmer" data-type="km">
+                                                                                <a class="dropdown-item">Central
+                                                                                        Khmer</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Chinese (Simplified)"
+                                                                                data-type="zh">
+                                                                                <a class="dropdown-item">Chinese
+                                                                                        (Simplified)</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Chinese (Traditional)"
+                                                                                data-type="zh-TW">
+                                                                                <a class="dropdown-item">Chinese
+                                                                                        (Traditional)</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Czech" data-type="cs">
+                                                                                <a class="dropdown-item">Czech</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Danish" data-type="da">
+                                                                                <a class="dropdown-item">Danish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Dutch" data-type="nl">
+                                                                                <a class="dropdown-item">Dutch</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="English" data-type="en">
+                                                                                <a class="dropdown-item">English</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Esperanto" data-type="eo">
+                                                                                <a class="dropdown-item">Esperanto</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Estonian" data-type="et">
+                                                                                <a class="dropdown-item">Estonian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Finnish" data-type="fi">
+                                                                                <a class="dropdown-item">Finnish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="French" data-type="fr">
+                                                                                <a class="dropdown-item">French</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Georgian" data-type="ka">
+                                                                                <a class="dropdown-item">Georgian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="German" data-type="de">
+                                                                                <a class="dropdown-item">German</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Greek" data-type="el">
+                                                                                <a class="dropdown-item">Greek</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Gujarati" data-type="gu">
+                                                                                <a class="dropdown-item">Gujarati</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Haitian" data-type="ht">
+                                                                                <a class="dropdown-item">Haitian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Hebrew" data-type="he">
+                                                                                <a class="dropdown-item">Hebrew</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Hindi" data-type="hi">
+                                                                                <a class="dropdown-item">Hindi</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Hungarian" data-type="hu">
+                                                                                <a class="dropdown-item">Hungarian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Icelandic" data-type="is">
+                                                                                <a class="dropdown-item">Icelandic</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Indonesian" data-type="id">
+                                                                                <a class="dropdown-item">Indonesian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Italian" data-type="it">
+                                                                                <a class="dropdown-item">Italian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Japanese" data-type="ja">
+                                                                                <a class="dropdown-item">Japanese</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Kazakh" data-type="kk">
+                                                                                <a class="dropdown-item">Kazakh</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Kirghiz" data-type="ky">
+                                                                                <a class="dropdown-item">Kirghiz</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Korean" data-type="ko">
+                                                                                <a class="dropdown-item">Korean</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Kurdish" data-type="ku">
+                                                                                <a class="dropdown-item">Kurdish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Latvian" data-type="lv">
+                                                                                <a class="dropdown-item">Latvian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Lithuanian" data-type="lt">
+                                                                                <a class="dropdown-item">Lithuanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Malayalam" data-type="ml">
+                                                                                <a class="dropdown-item">Malayalam</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Mongolian" data-type="mn">
+                                                                                <a class="dropdown-item">Mongolian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Norwegian Bokmal" data-type="nb">
+                                                                                <a class="dropdown-item">Norwegian
+                                                                                        Bokmal</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Norwegian Nynorsk" data-type="nn">
+                                                                                <a class="dropdown-item">Norwegian
+                                                                                        Nynorsk</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Panjabi" data-type="pa">
+                                                                                <a class="dropdown-item">Panjabi</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Persian" data-type="fa">
+                                                                                <a class="dropdown-item">Persian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Polish" data-type="pl">
+                                                                                <a class="dropdown-item">Polish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Portuguese" data-type="pt">
+                                                                                <a class="dropdown-item">Portuguese</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Pushto" data-type="ps">
+                                                                                <a class="dropdown-item">Pushto</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Romanian" data-type="ro">
+                                                                                <a class="dropdown-item">Romanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Russian" data-type="ru">
+                                                                                <a class="dropdown-item">Russian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Slovakian" data-type="sk">
+                                                                                <a class="dropdown-item">Slovakian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Somali" data-type="so">
+                                                                                <a class="dropdown-item">Somali</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Spanish" data-type="es">
+                                                                                <a class="dropdown-item">Spanish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Swedish" data-type="sv">
+                                                                                <a class="dropdown-item">Swedish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Tamil" data-type="ta">
+                                                                                <a class="dropdown-item">Tamil</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Telugu" data-type="te">
+                                                                                <a class="dropdown-item">Telugu</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Turkish" data-type="tr">
+                                                                                <a class="dropdown-item">Turkish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Ukrainian" data-type="uk">
+                                                                                <a class="dropdown-item">Ukrainian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Urdu" data-type="ur">
+                                                                                <a class="dropdown-item">Urdu</a>
+                                                                        </option>
+                                                                        <option class="dropdown-input-language"
+                                                                                id="Vietnamese" data-type="vi">
+                                                                                <a class="dropdown-item">Vietnamese</a>
+                                                                        </option>
+                                                                </select>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="card-body">
+                                                <h5 class="card-title">Input Language</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted" id="inputLanguageDisplay">
+                                                </h6>
+
+                                                <div class="form-group">
+                                                        <label id="label-input-language"
+                                                                for="exampleFormControlTextarea1"></label>
+                                                        <textarea class="form-control" id="inputTextArea"
+                                                                rows="3"></textarea>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+                        <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                        <div class="dropdown">
+                                                <button class="btn btn-primary dropdown-toggle m-3" type="button"
+                                                        id="dropdownMenuButton" data-toggle="dropdown"
+                                                        aria-haspopup="true" aria-expanded="false">
+                                                        Language selection
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        <div class="form-group">
+                                                                <select multiple class="form-control"
+                                                                        id="exampleFormControlSelect2">
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Afrikaans" data-type="af"><a
+                                                                                        class="dropdown-item">Afrikaans</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Albanian" data-type="sq"><a
+                                                                                        class="dropdown-item">Albanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Arabic" data-type="ar"> <a
+                                                                                        class="dropdown-item">Arabic</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Armenian" data-type="hy"><a
+                                                                                        class="dropdown-item">Armenian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Azerbaijani" data-type="az"><a
+                                                                                        class="dropdown-item">Azerbaijani</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Bashkir" data-type="ba"><a
+                                                                                        class="dropdown-item">Bashkir</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Basque" data-type="eu"><a
+                                                                                        class="dropdown-item">Basque</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Belarusian" data-type="be"><a
+                                                                                        class="dropdown-item">Belarusian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Bengali" data-type="bn"><a
+                                                                                        class="dropdown-item">Bengali</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Bosnian" data-type="bs"><a
+                                                                                        class="dropdown-item">Bosnian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Bulgarian" data-type="bg"><a
+                                                                                        class="dropdown-item">Bulgarian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Central Khmer" data-type="km"><a
+                                                                                        class="dropdown-item">Central
+                                                                                        Khmer</a></option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Chinese (Simplified)"
+                                                                                data-type="zh"><a
+                                                                                        class="dropdown-item">Chinese
+                                                                                        (Simplified)</a></option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Chinese (Traditional)"
+                                                                                data-type="zh-TW"><a
+                                                                                        class="dropdown-item">Chinese
+                                                                                        (Traditional)</a></option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Czech" data-type="cs"><a
+                                                                                        class="dropdown-item">Czech</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Danish" data-type="da"><a
+                                                                                        class="dropdown-item">Danish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Dutch" data-type="nl"><a
+                                                                                        class="dropdown-item">Dutch</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="English" data-type="en"><a
+                                                                                        class="dropdown-item">English</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Esperanto" data-type="eo"><a
+                                                                                        class="dropdown-item">Esperanto</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Estonian" data-type="et"><a
+                                                                                        class="dropdown-item">Estonian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Finnish" data-type="fi"><a
+                                                                                        class="dropdown-item">Finnish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="French" data-type="fr"><a
+                                                                                        class="dropdown-item">French</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Georgian" data-type="ka"><a
+                                                                                        class="dropdown-item">Georgian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="German" data-type="de"><a
+                                                                                        class="dropdown-item">German</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Greek" data-type="el"><a
+                                                                                        class="dropdown-item">Greek</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Gujarati" data-type="gu"><a
+                                                                                        class="dropdown-item">Gujarati</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Haitian" data-type="ht"><a
+                                                                                        class="dropdown-item">Haitian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Hebrew" data-type="he"><a
+                                                                                        class="dropdown-item">Hebrew</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Hindi" data-type="hi"><a
+                                                                                        class="dropdown-item">Hindi</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Hungarian" data-type="hu"><a
+                                                                                        class="dropdown-item">Hungarian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Icelandic" data-type="is"><a
+                                                                                        class="dropdown-item">Icelandic</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Indonesian" data-type="id"><a
+                                                                                        class="dropdown-item">Indonesian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Italian" data-type="it"><a
+                                                                                        class="dropdown-item">Italian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Japanese" data-type="ja"><a
+                                                                                        class="dropdown-item">Japanese</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Kazakh" data-type="kk"><a
+                                                                                        class="dropdown-item">Kazakh</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Kirghiz" data-type="ky"><a
+                                                                                        class="dropdown-item">Kirghiz</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Korean" data-type="ko"><a
+                                                                                        class="dropdown-item">Korean</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Kurdish" data-type="ku"><a
+                                                                                        class="dropdown-item">Kurdish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Latvian" data-type="lv"><a
+                                                                                        class="dropdown-item">Latvian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Lithuanian" data-type="lt"><a
+                                                                                        class="dropdown-item">Lithuanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Malayalam" data-type="ml"><a
+                                                                                        class="dropdown-item">Malayalam</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Mongolian" data-type="mn"><a
+                                                                                        class="dropdown-item">Mongolian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Norwegian Bokmal" data-type="nb"> <a
+                                                                                        class="dropdown-item">Norwegian
+                                                                                        Bokmal</a></option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Norwegian Nynorsk" data-type="nn"><a
+                                                                                        class="dropdown-item">Norwegian
+                                                                                        Nynorsk</a></option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Panjabi" data-type="pa"><a
+                                                                                        class="dropdown-item">Panjabi</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Persian" data-type="fa"><a
+                                                                                        class="dropdown-item">Persian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Polish" data-type="pl"><a
+                                                                                        class="dropdown-item">Polish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Portuguese" data-type="pt"><a
+                                                                                        class="dropdown-item">Portuguese</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Pushto" data-type="ps"><a
+                                                                                        class="dropdown-item">Pushto</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Romanian" data-type="ro"><a
+                                                                                        class="dropdown-item">Romanian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Russian" data-type="ru"><a
+                                                                                        class="dropdown-item">Russian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Slovakian" data-type="sk"><a
+                                                                                        class="dropdown-item">Slovakian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Somali" data-type="so"><a
+                                                                                        class="dropdown-item">Somali</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Spanish" data-type="es"><a
+                                                                                        class="dropdown-item">Spanish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Swedish" data-type="sv"><a
+                                                                                        class="dropdown-item">Swedish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Tamil" data-type="ta"><a
+                                                                                        class="dropdown-item">Tamil</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Telugu" data-type="te"><a
+                                                                                        class="dropdown-item">Telugu</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Turkish" data-type="tr"><a
+                                                                                        class="dropdown-item">Turkish</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Ukrainian" data-type="uk"><a
+                                                                                        class="dropdown-item">Ukrainian</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Urdu" data-type="ur"><a
+                                                                                        class="dropdown-item">Urdu</a>
+                                                                        </option>
+                                                                        <option class="dropdown-output-language"
+                                                                                id="Vietnamese" data-type="vi"><a
+                                                                                        class="dropdown-item">Vietnamese</a>
+                                                                        </option>
+                                                                </select>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="card-body">
+                                                <h5 class="card-title">Output Language</h5>
+                                                <h6 class="card-subtitle mb-2 text-muted" id="outputLanguageDisplay">
+                                                </h6>
+
+                                                <div class="form-group">
+                                                        <label id="label-output-language"
+                                                                for="exampleFormControlTextarea1"></label>
+                                                        <textarea readonly class="form-control bg-white"
+                                                                id="outputTextArea" rows="3"></textarea>
+                                                </div>
+                                                <button type="button" class="btn btn-outline-primary btn-lg btn-block"
+                                                        id="translateButton">Translate</button>
+
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col">
+                                <div class="card">
+                                        <div class="card-header">
+                                                <div class="row">
+                                                        <div class="col">
+                                                                <h4 class="m-1">Your previous translations </h4>
+                                                        </div>
+                                                        <div class="col">
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                        id="clearAllTranslations">Clear All
+                                                                        Translations!</button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <ul class="list-group list-group-flush card-header"
+                                                id="yourPreviousTranslations">
+
+                                        </ul>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+
+       
+
+
+
+
+
+
+
+        <!-- JQuery 3.1  -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <!-- Boostrap JS  -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                crossorigin="anonymous"></script>
+
+        <!-- Project JS  -->
+        <script src="./assets/js/translate.js"></script>
+</body>
+
+</html>
