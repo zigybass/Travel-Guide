@@ -28,50 +28,27 @@ $(document).ready(function(){
          
      });
 
-    // Currency Exchange API
+    // Currency Exchange API ------------------------------------------
+    
 
-    let userCountryCode = 1;
-    let xchangedCurrency;
-    // let userCurrencyNum = countryMap.ES;
-    // let targetCurrencyCode = exchangeRatios.EUR;
-    let data;
-    // How do we capture user input and make sure it's accessible by API
-    let targetSearch = "&base="; // + user input;
+    // Builds AJAX URL:
     const baseUrl = "https://openexchangerates.org/api/latest.json?";
     const apiId = "app_id=50c687c3304e40edbf02595e616bb76a";
     let currencyString = baseUrl + apiId;
 
 
-
-    function currencyConverter (x) {
-        return userCountryCode * targetCurrencyCode;
-    };
-
-    function flipConverter () {
-        return userCountryCode / targetCurrencyCode;
-    }
-
-    function mapCountry (x, y) {
-        let codeOne = countryMap.x;
-
-    };
-    // currencyConverter(userCountryCode, targetCurrencyCode);
-
-/*
+    let userCountryCode;
+    let targetCurrencyCode;
+  //AJAX request for daily currency exchange rates.
     $.ajax({
-        url: "https://openexchangerates.org/api/latest.json?" + apiId,
+        url: currencyString,
         method: "GET",
     }).then(function (response) {
-        console.log(response.rates)
-    })
-*/
+        userCountryCode = response.rates.USD;
 
 
-
-
-
-
-    const exchangeRatios = { AED: 3.672978,
+    // AJAX request data for exchange rates. All rates are compared to USD. (Basically hard data that I used because I didn't have real input data)
+     let exchangeRatios = { AED: 3.672978,
     AFN: 78.9545,
     ALL: 109.175,
     AMD: 475.894023,
@@ -242,10 +219,11 @@ $(document).ready(function(){
     ZAR: 14.67079,
     ZMW: 12.877607,
     ZWL: 322.000001,
-    }
+    } 
 
-    const countryMap = {
-        AD: "EUR",
+    // 2-letter country ID matched to corresponding currency.
+    const countryIdToCurrencyId = {
+        AD:"EUR",
         AE: "AED",
         AF: "AFN",
         AG: "XCD",
@@ -475,7 +453,6 @@ $(document).ready(function(){
         UG: "UGX",
         UM: "USD",
         US: "USD",
-        USAF: "USD",
         UY: "UYU",
         UZ: "UZS",
         VA: "EUR",
@@ -494,22 +471,54 @@ $(document).ready(function(){
         ZW: "ZWD"
     }
 
-    let codeToMoney;
-    function mapCountry (x) {
-        codeToMoney = countryMap.ES;
-    };
 
-    function currencyConverter () {
-        xchangedCurrency = userCountryCode * exchangeRatios[codeToMoney];
-        return xchangedCurrency;
-    };
+    // Creates array of Currency IDs for form
+    const currencyIdArray = Object.keys(response.rates);
+    console.log(currencyIdArray);
 
-    mapCountry();
-    console.log(codeToMoney)
-    currencyConverter();
-    console.log(xchangedCurrency)
-
-    // console.log(currencyConverter(userCountryCode, targetCurrencyCode));
+    // Appends country IDs into dropdown for currency selections
+    function dropdownCurr (arr) {
+        for (let i = 0; i < arr.length; i++) {
+            const aTag = $("<option>");
+            aTag.text((arr[i]));
+            $(".currency").append(aTag);
+        }
+    }
+    dropdownCurr(currencyIdArray); 
     
-    
-}); // end document.ready
+    // Converts input country data to country's currency
+    let countryId = "ES"; //this value should be equal to 2-Letter country code from IP-API or input box. 
+
+    let countryCurr = countryIdToCurrencyId[countryId];
+    console.log(countryCurr)
+    let ratio = exchangeRatios[countryCurr];
+    console.log(ratio);
+
+
+
+// Converts USD to target Currency.
+function currencyConverter (x, ratio) {
+    return x * ratio;
+};
+// Converts target Currency back to USD
+function flipConverter (x, ratio) {
+    return x / ratio;
+}
+
+// WIP: converts currencies on click. Maybe Coti's performs better?
+$("#convert").on("click", function () {
+    let baseCurr = $("base").val();
+    $("#target").text(currencyConverter(baseCurr, ratio));
+});
+
+$("#currSwitch").on("click", function () {
+    let target = $("target").val();
+    $("#base").text(flipConverter(target, ratio));
+})
+
+
+
+})
+}); // end document */
+
+
