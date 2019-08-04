@@ -71,7 +71,7 @@ $("#translateButton").on("click", function () {
     if (inputReady && outputReady == true) {
         const abbreviationToAPI = (inputLanguageSelectionAbbreviation + "-" + outputLanguageSelectionAbbreviation);
         if (inputText != "") {
-            // translation(inputText, abbreviationToAPI);
+            //translation(inputText, abbreviationToAPI);
             appending(inputText, "abbreviationToAPI", inputLanguageSelection, outputLanguageSelection)
 
         }
@@ -121,7 +121,8 @@ function appending(inputText, response, inputLanguageSelection, outputLanguageSe
                                         <p class="m-2" id="previousTranslationOutput">${response}</p>
                                 </div>
                                 <div class="col">
-                                <button type="button" class="btn btn-outline-danger individual-delete-button m-3" id="deleteIndividual" value="${induvidualTranslationValue}">Delete</button>
+                                <button type="button" class="btn btn-outline-danger individual-delete-button m-3" 
+                                id="deleteIndividual" value="${induvidualTranslationValue}">Delete</button>
                                 </div>
                         </div>
                 </div>
@@ -170,11 +171,11 @@ function backToPhraseAndTranslation(array) {
         phraseAndTranslation.push(array[x]);
         console.log("localstorage translationdata backtophrase");
     }
-}
+};
 
 function displaySavedData(phraseAndTranslation) {
     for (let x = 0; x < phraseAndTranslation.length; x++) {
         appending(phraseAndTranslation[x].phrase, phraseAndTranslation[x].translation, phraseAndTranslation[x].input, phraseAndTranslation[x].output);
         console.log("@displaySavedData");
     }
-}
+};
