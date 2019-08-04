@@ -10,39 +10,24 @@ $(document).ready(function(){
     let currencyString = baseUrl + apiId;
 
 
-    // Converts USD to target Currency. Not really necessary if we are just doing US travelers
-    function currencyConverter () {
-        return $("base").val() * targetCurrencyCode;
-    };
-    // Converts target Currency back to USD
-    function flipConverter () {
-        return userCountryCode / targetCurrencyCode;
-    }
-
-
-
-
-
 
     let userCountryCode;
-    let exchangeRatios;
     let targetCurrencyCode;
   // AJAX request for daily currency exchange rates.
+  /*
     $.ajax({
         url: currencyString,
         method: "GET",
     }).then(function (response) {
         //exchangeRatios = response.rates;
         userCountryCode = response.rates.USD;
+        */
 
         // console.log(exchangeRatios)
 
 
-
-
-
     // AJAX request data for exchange rates. All rates are compared to USD. (Basically hard data that I used because I didn't have real input data)
-    /* let exchangeRatios = { AED: 3.672978,
+     let exchangeRatios = { AED: 3.672978,
     AFN: 78.9545,
     ALL: 109.175,
     AMD: 475.894023,
@@ -213,8 +198,7 @@ $(document).ready(function(){
     ZAR: 14.67079,
     ZMW: 12.877607,
     ZWL: 322.000001,
-    }
-    */
+    } 
 
     // 2-letter country ID matched to corresponding currency.
     const countryIdToCurrencyId = {
@@ -448,7 +432,6 @@ $(document).ready(function(){
         UG: "UGX",
         UM: "USD",
         US: "USD",
-        USAF: "USD",
         UY: "UYU",
         UZ: "UZS",
         VA: "EUR",
@@ -466,51 +449,50 @@ $(document).ready(function(){
         ZM: "ZMK",
         ZW: "ZWD"
     }
+
+
     // Creates array of Currency IDs for form
-    const currencyIdArray = Object.keys(response.rates);
-    console.log(currencyIdArray);
+    //const currencyIdArray = Object.keys(response.rates);
+    //console.log(currencyIdArray);
 
     // Appends country IDs into dropdown for currency selections
-    function assignCurr (arr) {
+    function dropdownCurr (arr) {
         for (let i = 0; i < arr.length; i++) {
             const aTag = $("<option>");
             aTag.text((arr[i]));
             $(".currency").append(aTag);
         }
     }
-    assignCurr(currencyIdArray);
+    //dropdownCurr(currencyIdArray); 
 
+    // Converts currencies on click
     $("#convert").on("click", function () {
-        currencyConverter();
-    }
+        let baseCurr = $("base").val();
+        $("#target").text(currencyConverter(baseCurr, ratio));
+    });
+
+    $("#currSwitch").on("click", function () {
+        let target = $("target").val();
+        $("#base").text(flipConverter(target, ratio));
+    })
     
-    
+    // Converts input country data to country's currency
     let countryId = "ES"; //this value should be equal to 2-Letter country code. We will match IP-API code to this variable.
-    function compare () {
-        for (i = 0; i < Object.keys(countryIdToCurrencyId).length; i++) {
-            if ( countryId == (countryIdToCurrencyId.i)) {
-                return countryIdToCurrencyId.i;
-            } else {
-                console.log("fail")
-            }
-        }
-    };
-    compare();
 
-    let countryCurr = countryIdToCurrencyId.countryId;
-    targetCurrencyCode = response.rates.countryCurr;
+    let countryCurr = countryIdToCurrencyId[countryId];
     console.log(countryCurr)
+    let ratio = exchangeRatios[countryCurr];
+    console.log(ratio);
 
 
-// Converts USD to target Currency. Not really necessary if we are just doing US travelers
-function currencyConverter () {
-    return userCountryCode * targetCurrencyCode;
+
+// Converts USD to target Currency.
+function currencyConverter (x, ratio) {
+    return x * ratio;
 };
 // Converts target Currency back to USD
-function flipConverter () {
-    return userCountryCode / targetCurrencyCode;
+function flipConverter (x, ratio) {
+    return x / ratio;
 }
 
-});
-    
 }); // end document.ready
