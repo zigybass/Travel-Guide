@@ -14,16 +14,11 @@ $(document).ready(function(){
     let userCountryCode;
     let targetCurrencyCode;
   // AJAX request for daily currency exchange rates.
-  /*
     $.ajax({
         url: currencyString,
         method: "GET",
     }).then(function (response) {
-        //exchangeRatios = response.rates;
         userCountryCode = response.rates.USD;
-        */
-
-        // console.log(exchangeRatios)
 
 
     // AJAX request data for exchange rates. All rates are compared to USD. (Basically hard data that I used because I didn't have real input data)
@@ -452,8 +447,8 @@ $(document).ready(function(){
 
 
     // Creates array of Currency IDs for form
-    //const currencyIdArray = Object.keys(response.rates);
-    //console.log(currencyIdArray);
+    const currencyIdArray = Object.keys(response.rates);
+    console.log(currencyIdArray);
 
     // Appends country IDs into dropdown for currency selections
     function dropdownCurr (arr) {
@@ -463,21 +458,10 @@ $(document).ready(function(){
             $(".currency").append(aTag);
         }
     }
-    //dropdownCurr(currencyIdArray); 
-
-    // Converts currencies on click
-    $("#convert").on("click", function () {
-        let baseCurr = $("base").val();
-        $("#target").text(currencyConverter(baseCurr, ratio));
-    });
-
-    $("#currSwitch").on("click", function () {
-        let target = $("target").val();
-        $("#base").text(flipConverter(target, ratio));
-    })
+    dropdownCurr(currencyIdArray); 
     
     // Converts input country data to country's currency
-    let countryId = "ES"; //this value should be equal to 2-Letter country code. We will match IP-API code to this variable.
+    let countryId = "ES"; //this value should be equal to 2-Letter country code from IP-API or input box. 
 
     let countryCurr = countryIdToCurrencyId[countryId];
     console.log(countryCurr)
@@ -495,4 +479,18 @@ function flipConverter (x, ratio) {
     return x / ratio;
 }
 
+// WIP: converts currencies on click. Maybe Coti's performs better?
+$("#convert").on("click", function () {
+    let baseCurr = $("base").val();
+    $("#target").text(currencyConverter(baseCurr, ratio));
+});
+
+$("#currSwitch").on("click", function () {
+    let target = $("target").val();
+    $("#base").text(flipConverter(target, ratio));
+})
+
+
+
+})
 }); // end document.ready
