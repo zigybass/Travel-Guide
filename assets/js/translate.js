@@ -9,6 +9,18 @@ let phraseAndTranslation = [];
 let inputLanguageSelection;
 let outputLanguageSelection;
 
+useDefault();
+
+function useDefault() {
+    inputLanguageSelection = "English";
+    inputLanguageSelectionAbbreviation ="en";
+    $("#label-input-language").empty();
+    $("#label-input-language").append(inputLanguageSelection);
+    inputReady = true;
+}
+
+
+
 
 if (localStorage.getItem("ourArrayToString") != null) {
     localStorageItems();
@@ -71,8 +83,8 @@ $("#translateButton").on("click", function () {
     if (inputReady && outputReady == true) {
         const abbreviationToAPI = (inputLanguageSelectionAbbreviation + "-" + outputLanguageSelectionAbbreviation);
         if (inputText != "") {
-            //translation(inputText, abbreviationToAPI);
-            appending(inputText, "abbreviationToAPI", inputLanguageSelection, outputLanguageSelection)
+            translation(inputText, abbreviationToAPI);
+           
 
         }
     }
