@@ -1,6 +1,32 @@
 $(document).ready(function(){
-    $(".col-12").attr("class", "text-center");
 
+    //Location API
+
+    $("#locationIcon").on("click", function () {
+
+        let ipAddress= ["4.101.220.2","210.101.220.234","89.90.67.89","38.101.220.234","220.101.220.234"];
+
+        for(let i=0; i<ipAddress.length; i++) {
+        let queryURL ="http://ip-api.com/json/"+ipAddress[i]+"?fields=country,countryCode,city";
+
+         $.ajax({
+            url: queryURL,
+            method: "GET"
+         }).then(function(response) {
+            
+            console.log(response);
+
+            let cityName = response.city;
+
+            console.log(cityName)
+            $("#cityName").html("<h3>Welcome to "+cityName+"</h3>");
+
+         }).catch(function(error){
+             console.log(error)
+         })
+        }
+         
+     });
 
     // Currency Exchange API
 
@@ -30,12 +56,6 @@ $(document).ready(function(){
 
     };
     // currencyConverter(userCountryCode, targetCurrencyCode);
-
-
-
-
-
-
 
 /*
     $.ajax({
