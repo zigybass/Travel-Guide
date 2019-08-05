@@ -1,7 +1,7 @@
 $(document).ready(function(){
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Santiago,cl&units=imperial&appid=${apiKeyWeather}`;
-        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=Santiago,cl&units=imperial&appid=${apiKeyWeather}`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
 
         $.ajax({
            url: weatherURL,
@@ -51,10 +51,10 @@ $(document).ready(function(){
                 value.forEach(function(element){
                     const date = new Date(element.dt * 1000); 
                     const hour = date.getHours() > 12 ? date.getHours() - 12 + "pm" : date.getHours() + "am";
-                    $(`.day-detail-${key}`).append(`<div class="hour-forecast col">
-                                                        <p>${element.weather[0].description}</p>
+                    $(`.day-detail-${key}`).append(`<div class="hour-forecast col text-center">
                                                         <p>Max T.: ${element.main.temp_max}</p>
-                                                        <p>${hour}</p>
+                                                        <p>${element.weather[0].description}</p>
+                                                        <img src="./assets/images/forecast/${element.weather[0].icon}.svg" alt="">                        
                                                     </div>`)
                     hoursPerDay.push(hour);                                
                     tempPerHour.push(element.main.temp_max);                                
