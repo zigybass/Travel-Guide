@@ -18,12 +18,13 @@
         ,success: function(response) {
 
           console.log (response.nearby_restaurants);
-
+          
           for (i=0;i<response.nearby_restaurants.length;i++){
             let image="https://dummyimage.com/200x200/6b6b6b/00fff7&text=+Restaurant";
             if (!(response.nearby_restaurants[i].restaurant.thumb==""))
               image=response.nearby_restaurants[i].restaurant.thumb;
           $("#zomatoDiv").append(`
+          
           <div class="card zomato-card text-center">
             <img class="card-img-top" src="${image}" alt="${response.nearby_restaurants[i].restaurant.name}">
             <div class="card-body">
@@ -35,6 +36,7 @@
           `);
           if (i>=4)break;
           }
+          $(".card").attr("align","center");
         }
       });
      };
@@ -67,6 +69,7 @@
          `);
          if (i>=4)break;
          }
+         $(".card").attr("align","center");
        }
      });
     };
