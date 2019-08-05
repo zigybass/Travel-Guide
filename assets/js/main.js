@@ -27,6 +27,7 @@ $(document).ready(function(){
         }
          
      });
+     // test
 
     // Currency Exchange API ------------------------------------------
     
