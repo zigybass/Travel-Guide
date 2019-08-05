@@ -1,7 +1,38 @@
 body{
     background: #f2f2f2;
+    font-family: 'Open Sans', sans-serif;
 }
 img{
     height:50px;
     width:50px;
+
+
+h1, h2{
+    font-family: 'Shadows Into Light', cursive;
 }
+
+header{
+    background: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hour-forecast img {
+    width: 100px;
+    height: 100px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #42CEC9;
+    border-color: #42CEC9;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+
+.btn-primary:hover{
+    background-color: #1C7E7A;
+    border-color: #1C7E7A;
+} 
