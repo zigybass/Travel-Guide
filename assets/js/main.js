@@ -532,6 +532,7 @@ $(document).ready(function () {
             apiWeather();
             currencyAPI();
             urlQuery();
+            showCurrentLocation();
         });
     }); // end locationIcon click
 
@@ -543,7 +544,11 @@ $(document).ready(function () {
         $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
         apiWeather();
         urlQuery();
+<<<<<<< HEAD
+        
+=======
         currencyAPI();
+>>>>>>> 73101a70c045366fe6de482cb2067c46af5d9588
     });
 
     function apiWeather() {
@@ -559,6 +564,11 @@ $(document).ready(function () {
             url: weatherURL,
             method: "GET",
         }).then(function (response) {
+
+            let iLon= response.coord.lon;
+            let iLat= response.coord.lat;
+
+            showTargetLocation(iLon,iLat);
 
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
             console.log(weatherURL);
