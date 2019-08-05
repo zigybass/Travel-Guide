@@ -1,9 +1,6 @@
 $(document).ready(function(){
 
-    //Location API
-
     // Currency Exchange API ------------------------------------------
-    
 
     // Builds AJAX URL:
     const baseUrl = "https://openexchangerates.org/api/latest.json?";
@@ -17,8 +14,6 @@ $(document).ready(function(){
     }).then(function (response) {
         userCountryCode = response.rates.USD;
 
-
-    // AJAX request data for exchange rates. All rates are compared to USD. (Basically hard data that I used because I didn't have real input data)
 
     // 2-letter country ID matched to corresponding currency.
     const countryIdToCurrencyId = {
@@ -296,12 +291,12 @@ $(document).ready(function(){
 
 
 // Converts USD to target Currency.
-function currencyConverter (x, ratio) {
-    return x * ratio;
+function currencyConverter (currNum, ratio) {
+    return currNum * ratio;
 };
 // Converts target Currency back to USD
-function flipConverter (x, ratio) {
-    return x / ratio;
+function flipConverter (currNum, ratio) {
+    return currNum / ratio;
 }
 
 // Needs integration. Converts currencies on click. Maybe Coti's performs better?
