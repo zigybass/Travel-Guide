@@ -2,22 +2,29 @@ body{
     background: #f2f2f2;
     font-family: 'Open Sans', sans-serif;
 }
-img{
-    height:50px;
-    width:50px;
-
 
 h1, h2{
     font-family: 'Shadows Into Light', cursive;
 }
 
 header{
-    background: url('');
+    background: url('../images/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
 }
+.navbar-light .navbar-nav .nav-link{
+   color: #FFF;
+}
+.navbar-light .navbar-nav .active>.nav-link{
+    color: #42CEC9;
+}
 
+.navbar-light .navbar-brand{
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFF;
+    font-size: 40px;
+}
 .hour-forecast img {
     width: 100px;
     height: 100px;
@@ -36,3 +43,16 @@ header{
     background-color: #1C7E7A;
     border-color: #1C7E7A;
 } 
+
+button#locationIcon{
+    background-color: #42CEC9;
+    border-color: #42CEC9;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+}
+
+button#locationIcon i.fas{
+    color: #FFF;
+    font-size: 40px;
+}
