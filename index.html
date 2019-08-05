@@ -38,29 +38,30 @@
                     </nav>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-10">
+                    <form>
+                        <div class="form-group">
+                            <label class="city">Type City</label>
+                            <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <label for="countryname">Select Country</label>
+                            <select class="form-control" id="countryList">
+                                <option disabled selected value> Select a country -- </option>
+                            </select>
+                        </div>
+                        <button id="citySubmit" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
+                </div>
+            </div>
         </div>
     </header>
     <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <form>
-                    <div class="form-group">
-                        <label class="city">Type City</label>
-                        <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
-                    </div>
-                    <div class="form-group">
-                        <label for="countryname">Select Country</label>
-                        <select class="form-control" id="countryList">
 
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col-2">
-                <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
-            </div>
-        </div>
         <div class="row">
             <div class="col" id="cityName">
                 <h3> Welcome to the City </h3>
@@ -77,7 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-subtitle mb-2 text-muted">Weather for your city!</h5>
                         <p class="card-text" id="weatherCity"></p>
-                        <a href="#" class="card-link">Next Day's weather</a>
+                        <a href="./forecast.html" class="card-link">Next Day's weather</a>
                     </div>
                 </div>
             </div>
