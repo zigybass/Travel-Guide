@@ -531,6 +531,7 @@ $(document).ready(function () {
 
             apiWeather();
             currencyAPI();
+            urlQuery();
         });
     }); // end locationIcon click
 
@@ -539,13 +540,11 @@ $(document).ready(function () {
         e.preventDefault();
         cityName = $("#cityInput").val().trim();
         countryCodel = $("#countryList").val();
-        apiWeather();
-        currencyAPI();
-        console.log(countryCodel);
-        console.log(countryCodel);
         $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
-    }); //end of submit button
-    //Weather API
+        apiWeather();
+        urlQuery();
+        currencyAPI();
+    });
 
     function apiWeather() {
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
@@ -648,5 +647,10 @@ $(document).ready(function () {
 
 
     }//end of currencyAPI
+
+    function urlQuery(){
+        const forecastURL = `./forecast.html?city=${cityName}&countryCode=${countryCodel}` 
+        $("#weather-card a").attr("href",forecastURL);
+    }
 
 });  // end onf document.ready
