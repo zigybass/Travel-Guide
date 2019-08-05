@@ -118,18 +118,18 @@ function appending(inputText, response, inputLanguageSelection, outputLanguageSe
     $('#yourPreviousTranslations').prepend(`
     <div class="form-row individual-translations m-2 border border-secondary ${color}" id="${induvidualTranslationValue}">
                 <div class="form-group col-md-6">
-                        <span class="badge badge-pill badge-info bg-primary">${inputLanguageSelection}</span>
+                        <span class="badge badge-pill badge-info bg-secondary">${inputLanguageSelection}</span>
                         <p class="m-2" id="previousTranslationInput">${inputText}</p>
                 </div>
                 <div class="form-group col-md-6">
                         <div class="row">
                                 <div class="col col-md-8">
-                                        <span class="badge badge-pill badge-info bg-primary">${outputLanguageSelection}</span>
+                                        <span class="badge badge-pill badge-info bg-secondary">${outputLanguageSelection}</span>
                                         <p class="m-2" id="previousTranslationOutput">${response}</p>
                                 </div>
                                 <div class="col">
                                 <button type="button" class="btn btn-outline-danger individual-delete-button float-right m-3" 
-                                id="deleteIndividual" value="${induvidualTranslationValue}">Delete</button>
+                                id="deleteIndividual" value="${induvidualTranslationValue}"><i class="far fa-trash-alt"></i></button>
                                 </div>
                         </div>
                 </div>
