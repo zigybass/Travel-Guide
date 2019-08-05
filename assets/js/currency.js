@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-    // Currency Exchange API ------------------------------------------
+    // Builds AJAX URL:------------------
     
 
     // Builds AJAX URL:
@@ -283,7 +283,7 @@ $(document).ready(function(){
     dropdownCurr(currencyIdArray); 
     
     // Converts input country data to country's currency
-    let countryId = "ES"; //this value should be equal to 2-Letter country code from IP-API or input box. 
+    let countryId = ; //this value should be equal to 2-Letter country code from IP-API or input box. 
 
     let countryCurr = countryIdToCurrencyId[countryId];
     console.log(countryCurr)
