@@ -38,7 +38,6 @@ header{
     border-radius: 0;
 }
 
-
 .btn-primary:hover{
     background-color: #1C7E7A;
     border-color: #1C7E7A;
@@ -55,4 +54,16 @@ button#locationIcon{
 button#locationIcon i.fas{
     color: #FFF;
     font-size: 40px;
+}
+
+.dropdown-input-language {
+    float: left;
+    margin: 7px;
+    background-color: lightgray;
+}
+
+.dropdown-output-language {
+    float: left;
+    margin: 7px;
+    background-color: lightgrey;
 }
