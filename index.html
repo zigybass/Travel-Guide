@@ -50,6 +50,7 @@
                     <div class="form-group">
                         <label for="countryname">Select Country</label>
                         <select class="form-control" id="countryList">
+
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -84,7 +85,21 @@
                     <div class="card-body">
                         <h5 class="card-title">Currency </h5>
                         <h6 class="card-subtitle mb-2 text-muted">Currency for the country</h6>
-                        <p class="card-text"></p>
+                        <p class="card-text">
+                            <!--Currency Form below-->
+                            <select class="form-row currency">
+                                    <option>Select Currency</option>
+                                  </select>
+                                  <input type="text" class="form-row" id="base" aria-label="Text input with dropdown button">
+                              <select class="form-row currency">
+                                    <option>Select Currency</option>
+                                  </select>
+                                <input type="text" class="form-row" id="target" aria-label="Text input with dropdown button">
+                              </div>
+                              <button type="button" class="btn btn-info" id="convert">Convert</button>
+                              <button type="button" class="btn btn-secondary btn-sm" id="currSwitch">Switch Currencies</button>
+                              <!--End Currency Form-->
+                        </p>
                     </div>
                 </div>
             </div>
@@ -125,21 +140,6 @@
 
     <!-- Project JS  -->
     <script src="./assets/js/main.js"></script>
-
-
-    <select class="custom-select">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
-
-    <select class="custom-select">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
 
 </body>
 
