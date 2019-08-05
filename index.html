@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Shadows+Into+Light&display=swap" rel="stylesheet">
     <title>Team Red</title>
 </head>
 
@@ -16,8 +17,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                        <a class="navbar-brand" href="#"><img src="assets/images/logo.jpg"></a>
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#">Let's travel</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +26,7 @@
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mr-auto">
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                                 </li>
@@ -37,29 +38,30 @@
                     </nav>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-10">
+                    <form>
+                        <div class="form-group">
+                            <label class="city">Type City</label>
+                            <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <label for="countryname">Select Country</label>
+                            <select class="form-control" id="countryList">
+                                <option disabled selected value> Select a country -- </option>
+                            </select>
+                        </div>
+                        <button id="citySubmit" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-2">
+                    <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
+                </div>
+            </div>
         </div>
     </header>
     <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Type City</label>
-                        <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
-                    </div>
-                    <div class="form-group">
-                        <label for="countryname">Select Country</label>
-                        <select class="form-control" id="countryList">
 
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col-2">
-                <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
-            </div>
-        </div>
         <div class="row">
             <div class="col" id="cityName">
                 <h3> Welcome to the City </h3>
@@ -76,7 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-subtitle mb-2 text-muted">Weather for your city!</h5>
                         <p class="card-text" id="weatherCity"></p>
-                        <a href="#" class="card-link">Next Day's weather</a>
+                        <a href="./forecast.html" class="card-link">Next Day's weather</a>
                     </div>
                 </div>
             </div>
