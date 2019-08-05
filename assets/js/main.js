@@ -23,7 +23,7 @@ $(document).ready(function () {
             $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
         
         }
-
+        // test
     // **************************
     //Weather API
 else {
