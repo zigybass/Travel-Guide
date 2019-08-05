@@ -75,10 +75,10 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div id="weather-card" class="card-body">
+                    <div class="card-body">
                         <h5 class="card-subtitle mb-2 text-muted">Weather for your city!</h5>
                         <p class="card-text" id="weatherCity"></p>
-                        <a class="card-link">Next Day's weather</a>
+                        <a href="./forecast.html" class="card-link">Next Day's weather</a>
                     </div>
                 </div>
             </div>
@@ -110,15 +110,18 @@
             </div>
         </div>
         <!--The beginning of translation-->
-        <div class="row">
-            <div class="col">
-               
-                    <div class="container">
-                            <div class="row">
+        <div id="translate-section" >
+            <div class="row title">
+                <div class="col">
+                    <h3>Translate what you want</h3>
+                </div>
+            </div>   
+            <div class="container" >          
+                            <div class="row bg-white">
                                     <div class="col">
-                                            <div class="card h-100">
+                                            <div class="card h-100 border-white">
                                                     <div class="dropdown">
-                                                            <button class="btn btn-primary dropdown-toggle m-3 col-11" type="button"
+                                                            <button class="btn btn-secondary dropdown-toggle m-3 col-11" type="button"
                                                                     id="dropdownMenuButton" data-toggle="dropdown"
                                                                     aria-haspopup="true" aria-expanded="false">
                                                                     Language selection
@@ -397,9 +400,9 @@
                                             </div>
                                     </div>
                                     <div class="col">
-                                            <div class="card h-100">
+                                            <div class="card h-100 border-white">
                                                     <div class="dropdown">
-                                                            <button class="btn btn-primary dropdown-toggle m-3 col-11" type="button"
+                                                            <button class="btn btn-secondary dropdown-toggle m-3 col-11" type="button"
                                                                     id="dropdownMenuButton " data-toggle="dropdown"
                                                                     aria-haspopup="true" aria-expanded="false">
                                                                     Language selection
@@ -658,7 +661,7 @@
                                                                     </div>
                                                             </div>
                                                     </div>
-                                                    <div class="card-body">
+                                                    <div class="card-body border-white">
                                                             <h5 class="card-title">Translation</h5>
                                                             <h6 class="card-subtitle mb-2 text-muted" id="outputLanguageDisplay">
                                                             </h6>
@@ -669,14 +672,16 @@
                                                                     <textarea readonly class="form-control bg-white"
                                                                             id="outputTextArea" rows="3"></textarea>
                                                             </div>
-                                                            <button type="button" class="btn btn-outline-primary btn-lg btn-block"
+                                                           
+                                                           
+                                                            <button type="button" class="btn btn-primary btn-lg btn-block"
                                                                     id="translateButton">Translate</button>
             
                                                     </div>
                                             </div>
                                     </div>
                             </div>
-                            <div class="row">
+                            <div class="row bg-white">
                                     <div class="col">
                                             <div class="card">
                                                     <div class="card-header">
@@ -686,9 +691,10 @@
                                                                     </div>
                                                                     <div class="col">
                                                                             <button type="button"
-                                                                                    class="btn float-right btn-outline-danger"
-                                                                                    id="clearAllTranslations">Delete All
+                                                                                    class="btn-sm float-right btn-light "
+                                                                                    id="clearAllTranslations"> <i class="far fa-trash-alt"></i>Delete All
                                                                                     Translations!</button>
+                                                                                    
                                                                     </div>
                                                             </div>
                                                     </div>
@@ -699,7 +705,7 @@
                                             </div>
                                     </div>
                             </div>
-                    </div>
+            </div>
 
             </div>
         </div>
