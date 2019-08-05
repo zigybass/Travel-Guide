@@ -274,7 +274,7 @@ $(document).ready(function(){
         
         console.log(localStorage.getItem("city"));
 
-        $.ajax({
+        $.ajax({   
            url: weatherURL,
            method: "GET",
         }).then(function(response){

@@ -1,19 +1,378 @@
-$(document).ready(function(){
+$(document).ready(function () {
+   // $(".col-12").attr("class", "text-center");
+
+    //Location API
+
+    $("#locationIcon").on("click", function () {
+
+        let ipAddress= ["4.101.220.2","210.101.220.234","89.90.67.89","38.101.220.234","220.101.220.234"];
+
+        for(let i=0; i<ipAddress.length; i++) {
+        let queryURL ="http://ip-api.com/json/"+ipAddress[i]+"?fields=country,countryCode,city";
+
+         $.ajax({
+            url: queryURL,
+            method: "GET"
+         }).then(function(response) {
+            
+            console.log(response);
+
+            let cityName = response.city;
+
+            console.log(cityName)
+            $("#cityName").html("<h3>Welcome to "+cityName+"</h3>");
+
+         }).catch(function(error){
+             console.log(error)
+         })
+        }
+         
+     });
+     // test
+
+    //Location API
+
+    let currectLocationClick = false;
+
+    if (currectLocationClick == true) {
+
+    $("#locationIcon").on("click", function () {
+
+        let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode";
+
+        $.ajax({
+            url: queryURL,
+            method: "GET",
+        }).then(function (response) {
+
+            let cityName = response.city;
+            let countryCodel = response.countryCode;
+            console.log(cityName);
+            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        
+        }
+
+    // **************************
+    //Weather API
+else {
+    let city = '';
+
+    const countryCode = {
+        'AF': 'Afghanistan',
+        'AX': 'Aland Islands',
+        'AL': 'Albania',
+        'DZ': 'Algeria',
+        'AS': 'American Samoa',
+        'AD': 'Andorra',
+        'AO': 'Angola',
+        'AI': 'Anguilla',
+        'AQ': 'Antarctica',
+        'AG': 'Antigua And Barbuda',
+        'AR': 'Argentina',
+        'AM': 'Armenia',
+        'AW': 'Aruba',
+        'AU': 'Australia',
+        'AT': 'Austria',
+        'AZ': 'Azerbaijan',
+        'BS': 'Bahamas',
+        'BH': 'Bahrain',
+        'BD': 'Bangladesh',
+        'BB': 'Barbados',
+        'BY': 'Belarus',
+        'BE': 'Belgium',
+        'BZ': 'Belize',
+        'BJ': 'Benin',
+        'BM': 'Bermuda',
+        'BT': 'Bhutan',
+        'BO': 'Bolivia',
+        'BA': 'Bosnia And Herzegovina',
+        'BW': 'Botswana',
+        'BV': 'Bouvet Island',
+        'BR': 'Brazil',
+        'IO': 'British Indian Ocean Territory',
+        'BN': 'Brunei Darussalam',
+        'BG': 'Bulgaria',
+        'BF': 'Burkina Faso',
+        'BI': 'Burundi',
+        'KH': 'Cambodia',
+        'CM': 'Cameroon',
+        'CA': 'Canada',
+        'CV': 'Cape Verde',
+        'KY': 'Cayman Islands',
+        'CF': 'Central African Republic',
+        'TD': 'Chad',
+        'CL': 'Chile',
+        'CN': 'China',
+        'CX': 'Christmas Island',
+        'CC': 'Cocos (Keeling) Islands',
+        'CO': 'Colombia',
+        'KM': 'Comoros',
+        'CG': 'Congo',
+        'CD': 'Congo, Democratic Republic',
+        'CK': 'Cook Islands',
+        'CR': 'Costa Rica',
+        'CI': 'Cote D\'Ivoire',
+        'HR': 'Croatia',
+        'CU': 'Cuba',
+        'CY': 'Cyprus',
+        'CZ': 'Czech Republic',
+        'DK': 'Denmark',
+        'DJ': 'Djibouti',
+        'DM': 'Dominica',
+        'DO': 'Dominican Republic',
+        'EC': 'Ecuador',
+        'EG': 'Egypt',
+        'SV': 'El Salvador',
+        'GQ': 'Equatorial Guinea',
+        'ER': 'Eritrea',
+        'EE': 'Estonia',
+        'ET': 'Ethiopia',
+        'FK': 'Falkland Islands (Malvinas)',
+        'FO': 'Faroe Islands',
+        'FJ': 'Fiji',
+        'FI': 'Finland',
+        'FR': 'France',
+        'GF': 'French Guiana',
+        'PF': 'French Polynesia',
+        'TF': 'French Southern Territories',
+        'GA': 'Gabon',
+        'GM': 'Gambia',
+        'GE': 'Georgia',
+        'DE': 'Germany',
+        'GH': 'Ghana',
+        'GI': 'Gibraltar',
+        'GR': 'Greece',
+        'GL': 'Greenland',
+        'GD': 'Grenada',
+        'GP': 'Guadeloupe',
+        'GU': 'Guam',
+        'GT': 'Guatemala',
+        'GG': 'Guernsey',
+        'GN': 'Guinea',
+        'GW': 'Guinea-Bissau',
+        'GY': 'Guyana',
+        'HT': 'Haiti',
+        'HM': 'Heard Island & Mcdonald Islands',
+        'VA': 'Holy See (Vatican City State)',
+        'HN': 'Honduras',
+        'HK': 'Hong Kong',
+        'HU': 'Hungary',
+        'IS': 'Iceland',
+        'IN': 'India',
+        'ID': 'Indonesia',
+        'IR': 'Iran, Islamic Republic Of',
+        'IQ': 'Iraq',
+        'IE': 'Ireland',
+        'IM': 'Isle Of Man',
+        'IL': 'Israel',
+        'IT': 'Italy',
+        'JM': 'Jamaica',
+        'JP': 'Japan',
+        'JE': 'Jersey',
+        'JO': 'Jordan',
+        'KZ': 'Kazakhstan',
+        'KE': 'Kenya',
+        'KI': 'Kiribati',
+        'KR': 'Korea',
+        'KW': 'Kuwait',
+        'KG': 'Kyrgyzstan',
+        'LA': 'Lao People\'s Democratic Republic',
+        'LV': 'Latvia',
+        'LB': 'Lebanon',
+        'LS': 'Lesotho',
+        'LR': 'Liberia',
+        'LY': 'Libyan Arab Jamahiriya',
+        'LI': 'Liechtenstein',
+        'LT': 'Lithuania',
+        'LU': 'Luxembourg',
+        'MO': 'Macao',
+        'MK': 'Macedonia',
+        'MG': 'Madagascar',
+        'MW': 'Malawi',
+        'MY': 'Malaysia',
+        'MV': 'Maldives',
+        'ML': 'Mali',
+        'MT': 'Malta',
+        'MH': 'Marshall Islands',
+        'MQ': 'Martinique',
+        'MR': 'Mauritania',
+        'MU': 'Mauritius',
+        'YT': 'Mayotte',
+        'MX': 'Mexico',
+        'FM': 'Micronesia, Federated States Of',
+        'MD': 'Moldova',
+        'MC': 'Monaco',
+        'MN': 'Mongolia',
+        'ME': 'Montenegro',
+        'MS': 'Montserrat',
+        'MA': 'Morocco',
+        'MZ': 'Mozambique',
+        'MM': 'Myanmar',
+        'NA': 'Namibia',
+        'NR': 'Nauru',
+        'NP': 'Nepal',
+        'NL': 'Netherlands',
+        'AN': 'Netherlands Antilles',
+        'NC': 'New Caledonia',
+        'NZ': 'New Zealand',
+        'NI': 'Nicaragua',
+        'NE': 'Niger',
+        'NG': 'Nigeria',
+        'NU': 'Niue',
+        'NF': 'Norfolk Island',
+        'MP': 'Northern Mariana Islands',
+        'NO': 'Norway',
+        'OM': 'Oman',
+        'PK': 'Pakistan',
+        'PW': 'Palau',
+        'PS': 'Palestinian Territory, Occupied',
+        'PA': 'Panama',
+        'PG': 'Papua New Guinea',
+        'PY': 'Paraguay',
+        'PE': 'Peru',
+        'PH': 'Philippines',
+        'PN': 'Pitcairn',
+        'PL': 'Poland',
+        'PT': 'Portugal',
+        'PR': 'Puerto Rico',
+        'QA': 'Qatar',
+        'RE': 'Reunion',
+        'RO': 'Romania',
+        'RU': 'Russian Federation',
+        'RW': 'Rwanda',
+        'BL': 'Saint Barthelemy',
+        'SH': 'Saint Helena',
+        'KN': 'Saint Kitts And Nevis',
+        'LC': 'Saint Lucia',
+        'MF': 'Saint Martin',
+        'PM': 'Saint Pierre And Miquelon',
+        'VC': 'Saint Vincent And Grenadines',
+        'WS': 'Samoa',
+        'SM': 'San Marino',
+        'ST': 'Sao Tome And Principe',
+        'SA': 'Saudi Arabia',
+        'SN': 'Senegal',
+        'RS': 'Serbia',
+        'SC': 'Seychelles',
+        'SL': 'Sierra Leone',
+        'SG': 'Singapore',
+        'SK': 'Slovakia',
+        'SI': 'Slovenia',
+        'SB': 'Solomon Islands',
+        'SO': 'Somalia',
+        'ZA': 'South Africa',
+        'GS': 'South Georgia And Sandwich Isl.',
+        'ES': 'Spain',
+        'LK': 'Sri Lanka',
+        'SD': 'Sudan',
+        'SR': 'Suriname',
+        'SJ': 'Svalbard And Jan Mayen',
+        'SZ': 'Swaziland',
+        'SE': 'Sweden',
+        'CH': 'Switzerland',
+        'SY': 'Syrian Arab Republic',
+        'TW': 'Taiwan',
+        'TJ': 'Tajikistan',
+        'TZ': 'Tanzania',
+        'TH': 'Thailand',
+        'TL': 'Timor-Leste',
+        'TG': 'Togo',
+        'TK': 'Tokelau',
+        'TO': 'Tonga',
+        'TT': 'Trinidad And Tobago',
+        'TN': 'Tunisia',
+        'TR': 'Turkey',
+        'TM': 'Turkmenistan',
+        'TC': 'Turks And Caicos Islands',
+        'TV': 'Tuvalu',
+        'UG': 'Uganda',
+        'UA': 'Ukraine',
+        'AE': 'United Arab Emirates',
+        'GB': 'United Kingdom',
+        'US': 'United States',
+        'UM': 'United States Outlying Islands',
+        'UY': 'Uruguay',
+        'UZ': 'Uzbekistan',
+        'VU': 'Vanuatu',
+        'VE': 'Venezuela',
+        'VN': 'Viet Nam',
+        'VG': 'Virgin Islands, British',
+        'VI': 'Virgin Islands, U.S.',
+        'WF': 'Wallis And Futuna',
+        'EH': 'Western Sahara',
+        'YE': 'Yemen',
+        'ZM': 'Zambia',
+        'ZW': 'Zimbabwe',
+}
+
+console.log(countryCode);
+for (let [key, value] of Object.entries(countryCode)) {
+    $("#countryList").append(`<option value=${key}>${value}</option>`)
+}
 
 
-    // Currency Exchange API ------------------------------------------
-    
+$("#submit").click(function(e){
+    e.preventDefault()
+    city = $("#cityInputName").val().trim();
+    const countryCode = $("#countryList").val();
+    apiWeather();
+})
 
-    // Builds AJAX URL:
+
+    function apiWeather(){
+        const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
+        console.log("City: " + cityName + "/  Country:" + countryCodel);
+        
+        localStorage.setItem("City", cityName);
+        localStorage.setItem("Country", countryCodel);
+        
+        //console.log(localStorage.getItem("city"));
+
+          $.ajax({
+           url: weatherURL,
+           method: "GET",
+        }).then(function(response){
+
+            console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
+            console.log(weatherURL);
+           // $("#city-name").text(`City Name: ${response.name}`);
+           // $("#city-id").text(`City ID: ${response.id}`);
+           $("#weatherCity").text(`Main Temp : ${response.main.temp},  `);
+           $("#weatherCity").append(`Min Temp : ${response.main.temp_min},  `);
+            $("#weatherCity").append(`Max Temp : ${response.main.temp_max}   `);
+
+        });
+
+        $.ajax({
+            url: weekForecastURL,
+            method: "GET",
+         }).then(function(forecast){
+             console.log(forecast);
+             console.log(weekForecastURL);
+         });
+        }
+}
+})
+//***************************************
+    // Currency Exchange API
+
+    let userCountryCode = 1;
+    let xchangedCurrency;
+    // let userCurrencyNum = countryMap.ES;
+    // let targetCurrencyCode = exchangeRatios.EUR;
+    let data;
+    // How do we capture user input and make sure it's accessible by API
+    let targetSearch = "&base="; // + user input;
     const baseUrl = "https://openexchangerates.org/api/latest.json?";
     const apiId = "app_id=50c687c3304e40edbf02595e616bb76a";
     let currencyString = baseUrl + apiId;
 
 
-
     let userCountryCode;
     let targetCurrencyCode;
-  // AJAX request for daily currency exchange rates.
+  //AJAX request for daily currency exchange rates.
     $.ajax({
         url: currencyString,
         method: "GET",
@@ -427,6 +786,7 @@ $(document).ready(function(){
         UG: "UGX",
         UM: "USD",
         US: "USD",
+        USAF: "USD",
         UY: "UYU",
         UZ: "UZS",
         VA: "EUR",
@@ -445,28 +805,22 @@ $(document).ready(function(){
         ZW: "ZWD"
     }
 
+    let codeToMoney;
+    function mapCountry(x) {
+        codeToMoney = countryMap.ES;
+    };
 
-    // Creates array of Currency IDs for form
-    const currencyIdArray = Object.keys(response.rates);
-    console.log(currencyIdArray);
+    function currencyConverter() {
+        xchangedCurrency = userCountryCode * exchangeRatios[codeToMoney];
+        return xchangedCurrency;
+    };
 
-    // Appends country IDs into dropdown for currency selections
-    function dropdownCurr (arr) {
-        for (let i = 0; i < arr.length; i++) {
-            const aTag = $("<option>");
-            aTag.text((arr[i]));
-            $(".currency").append(aTag);
-        }
-    }
-    dropdownCurr(currencyIdArray); 
-    
-    // Converts input country data to country's currency
-    let countryId = "ES"; //this value should be equal to 2-Letter country code from IP-API or input box. 
+    mapCountry();
+    console.log(codeToMoney)
+    currencyConverter();
+    console.log(xchangedCurrency)
 
-    let countryCurr = countryIdToCurrencyId[countryId];
-    console.log(countryCurr)
-    let ratio = exchangeRatios[countryCurr];
-    console.log(ratio);
+    // console.log(currencyConverter(userCountryCode, targetCurrencyCode));
 
 
 
@@ -493,4 +847,6 @@ $("#currSwitch").on("click", function () {
 
 
 })
-}); // end document.ready
+}); // end document */
+
+

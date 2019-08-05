@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="90" height="90" fill="none"/>
+    </clipPath>
+    <filter id="Ellipse_18" x="0" y="0" width="90" height="90" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_348" data-name="Group 348" transform="translate(354 -481)">
+    <g id="Repeat_Grid_2" data-name="Repeat Grid 2" transform="translate(-354 481)" clip-path="url(#clip-path)">
+      <g id="Group_315" data-name="Group 315" transform="translate(-77 -128)">
+        <g transform="matrix(1, 0, 0, 1, 77, 128)" filter="url(#Ellipse_18)">
+          <circle id="Ellipse_18-2" data-name="Ellipse 18" cx="36" cy="36" r="36" transform="translate(9 6)" fill="#fff"/>
+        </g>
+        <g id="Group_295" data-name="Group 295" transform="translate(100.049 148.049)">
+          <path id="Path_100" data-name="Path 100" d="M98.381,83.9a14.481,14.481,0,1,0,14.481,14.481A14.5,14.5,0,0,0,98.381,83.9Z" transform="translate(-76.841 -76.841)" fill="#ffeb99"/>
+          <path id="Path_101" data-name="Path 101" d="M270.481,98.381A14.5,14.5,0,0,1,256,112.861V83.9A14.5,14.5,0,0,1,270.481,98.381Z" transform="translate(-234.46 -76.841)" fill="#ffde55"/>
+          <path id="Path_102" data-name="Path 102" d="M454.079,240.3h-2.558a1.321,1.321,0,1,0,0,2.642h2.558a1.321,1.321,0,1,0,0-2.642Z" transform="translate(-412.32 -220.081)" fill="#eebf00"/>
+          <path id="Path_103" data-name="Path 103" d="M3.887,240.3H1.321a1.321,1.321,0,1,0,0,2.642H3.879a1.321,1.321,0,0,0,.008-2.642Z" transform="translate(0 -220.081)" fill="#ffcd00"/>
+          <path id="Path_104" data-name="Path 104" d="M390.919,70.7,389.11,72.5a1.327,1.327,0,0,0,1.876,1.876l1.8-1.817a1.336,1.336,0,0,0,0-1.876A1.31,1.31,0,0,0,390.919,70.7Z" transform="translate(-356.018 -64.385)" fill="#eebf00"/>
+          <g id="Group_294" data-name="Group 294" transform="translate(5.926)">
+            <path id="Path_105" data-name="Path 105" d="M72.619,389.021l-1.809,1.817a1.327,1.327,0,0,0,1.876,1.876l1.809-1.809a1.33,1.33,0,0,0-1.876-1.885Z" transform="translate(-70.425 -355.937)" fill="#ffcd00"/>
+            <path id="Path_106" data-name="Path 106" d="M242.942,1.321V3.879a1.321,1.321,0,1,1-2.642,0V1.321a1.321,1.321,0,1,1,2.642,0Z" transform="translate(-226.007)" fill="#ffcd00"/>
+            <path id="Path_107" data-name="Path 107" d="M242.942,451.421v2.558a1.321,1.321,0,1,1-2.642,0v-2.558a1.321,1.321,0,0,1,2.642,0Z" transform="translate(-226.007 -412.228)" fill="#ffcd00"/>
+          </g>
+          <path id="Path_108" data-name="Path 108" d="M390.886,389.01a1.327,1.327,0,0,0-1.876,1.876l1.809,1.809a1.327,1.327,0,0,0,1.876-1.876Z" transform="translate(-355.926 -355.926)" fill="#eebf00"/>
+          <path id="Path_109" data-name="Path 109" d="M72.552,70.81a1.327,1.327,0,0,0-1.876,1.876L72.485,74.5a1.327,1.327,0,0,0,1.876-1.876Z" transform="translate(-64.373 -64.499)" fill="#ffcd00"/>
+          <path id="Path_110" data-name="Path 110" d="M257.321,1.321V3.879A1.323,1.323,0,0,1,256,5.2V0A1.323,1.323,0,0,1,257.321,1.321Z" transform="translate(-234.46)" fill="#eebf00"/>
+          <path id="Path_111" data-name="Path 111" d="M257.321,451.329v2.558A1.323,1.323,0,0,1,256,455.208V450A1.33,1.33,0,0,1,257.321,451.329Z" transform="translate(-234.46 -412.137)" fill="#eebf00"/>
+        </g>
+      </g>
+    </g>
+    <path id="Path_149" data-name="Path 149" d="M30.3,196.412a5.17,5.17,0,0,1-5.171,5.17H5.171a5.17,5.17,0,1,1,2.288-9.806,8.452,8.452,0,0,1,8.28-7.1H15.8a8.455,8.455,0,0,1,8.264,6.673,5.173,5.173,0,0,1,6.235,5.06Zm0,0" transform="translate(-316 343.202)" fill="#dae2f2"/>
+    <path id="Path_150" data-name="Path 150" d="M218.577,196.412a5.17,5.17,0,0,1-5.171,5.17h-9.328v-16.9a8.455,8.455,0,0,1,8.264,6.673,5.173,5.173,0,0,1,6.235,5.06Zm0,0" transform="translate(-504.278 343.202)" fill="#b9ceed"/>
+  </g>
+</svg>

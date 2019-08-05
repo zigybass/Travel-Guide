@@ -45,16 +45,13 @@
             <div class="col-10">
                 <form>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Type City</label>
+                        <label class="city">Type City</label>
                         <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
                     </div>
                     <div class="form-group">
                         <label for="countryname">Select Country</label>
-                        <select class="form-control" id="countrylist">
-                            <option>France</option>
-                            <option>Switzerland</option>
-                            <option>Canada</option>
-                            <option>Mexico</option> 
+                        <select class="form-control" id="countryList">
+
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -65,7 +62,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col" id="cityName">
                 <h3> Welcome to the City </h3>
             </div>
         </div>
@@ -79,7 +76,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-subtitle mb-2 text-muted">Weather for your city!</h5>
-                        <p class="card-text"></p>
+                        <p class="card-text" id="weatherCity"></p>
                         <a href="#" class="card-link">Next Day's weather</a>
                     </div>
                 </div>
