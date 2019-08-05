@@ -1,8 +1,15 @@
 $(document).ready(function(){
-        const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
-        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=Atlanta,us&units=imperial&appid=${apiKeyWeather}`;
+        console.log(window.location.search)
+        const url = window.location;
+        const params = new URLSearchParams(url.search);
+        const cityName = params.get("city");
+        const countryCodel = params.get("countryCode");
 
+        console.log(window.location.search)
+        console.log(params);
+        const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
         $.ajax({
            url: weatherURL,
            method: "GET",
