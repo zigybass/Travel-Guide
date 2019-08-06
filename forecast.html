@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700|Shadows+Into+Light&display=swap" rel="stylesheet">
     <title>Team Read</title>
 </head>
-<body>
+<body class="forecast-page">
     <header>
         <div class="container">
                 <div class="row">
@@ -35,16 +35,18 @@
                         </nav>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h1><span id="city-name"></span></h1>
+                    </div>
+                </div>
         </header>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12"> <h1>Forecast <span id="city-name"></span></h1></div>
-        </div>
-        <div class="row">
-            <div class="col-12"> 
-                <h2>Today / <span id="today-date"></span></h2>
-            </div>
-            
+                <div class="btn-group ml-auto" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary"><sup>o</sup>F</button>
+                        <button type="button" class="btn btn-secondary"><sup>o</sup>C</button>
+                </div>
         </div>
         <div id="forecast" class="row" >
         </div>
