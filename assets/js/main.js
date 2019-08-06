@@ -255,9 +255,9 @@ $(document).ready(function () {
         method: "GET",
     }).then(function (response) {
 
-        console.log( localStorage.getItem("City"))
+        console.log( sessionStorage.getItem("City"))
 
-        if ( localStorage.getItem("City") === null ) {
+        if ( sessionStorage.getItem("City") === null ) {
             cityName = response.city;
             countryCodel = response.countryCode;
             console.log(cityName);
@@ -270,15 +270,15 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
-            localStorage.setItem("City", cityName);
-            localStorage.setItem("Country", countryCodel);
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
             let iLon= response.lon;
             let iLat= response.lat;
 
         showTargetLocation(iLon,iLat);
         } else {
-            cityName = localStorage.getItem("City");
-            countryCodel = localStorage.getItem("Country");
+            cityName = sessionStorage.getItem("City");
+            countryCodel = sessionStorage.getItem("Country");
             console.log(cityName);
             $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
             console.log(countryCodel)
@@ -289,8 +289,8 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
-            localStorage.setItem("City", cityName);
-            localStorage.setItem("Country", countryCodel);
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
             let iLon= response.lon;
             let iLat= response.lat;
 
@@ -600,8 +600,8 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
-            localStorage.setItem("City", cityName);
-            localStorage.setItem("Country", countryCodel);
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
             let iLon= response.lon;
             let iLat= response.lat;
 
@@ -620,8 +620,8 @@ $(document).ready(function () {
         currencyAPI();
         $("#base").val("");
         $("#conversion").val("");
-        localStorage.setItem("City", cityName);
-        localStorage.setItem("Country", countryCodel);
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
     });
 
     function apiWeather() {
@@ -630,8 +630,8 @@ $(document).ready(function () {
         const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
         console.log("City: " + cityName + "/  Country:" + countryCodel);
 
-        localStorage.setItem("City", cityName);
-        localStorage.setItem("Country", countryCodel);
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
 
         $.ajax({
             url: weatherURL,
