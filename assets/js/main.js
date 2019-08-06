@@ -249,6 +249,30 @@ $(document).ready(function () {
         'ZW': 'Zimbabwe',
     }
 
+    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode";
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    }).then(function (response) {
+
+        cityName = response.city;
+        countryCodel = response.countryCode;
+        console.log(cityName);
+        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        console.log(countryCodel)
+        //APIs
+
+        apiWeather();
+        currencyAPI();
+        urlQuery();
+        $("#base").val("");
+        $("#conversion").val("");
+        let iLon= response.lon;
+        let iLat= response.lat;
+
+        showTargetLocation(iLon,iLat);
+    });
+
     const countryIdToCurrencyId = {
         AD: "EUR",
         AE: "AED",
