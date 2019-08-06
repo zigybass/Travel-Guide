@@ -274,6 +274,7 @@ $(document).ready(function () {
             sessionStorage.setItem("Country", countryCodel);
             let iLon = response.lon;
             let iLat = response.lat;
+            console.log(iLon, iLat);
 
             showTargetLocation(iLon, iLat);
         } else {
