@@ -63,17 +63,34 @@ button#citySubmit {
 #weather-section .card {
     height: 100%;   
 }
+.temperature{
+    text-transform: uppercase;
+}
+.temperature sup{
+    text-transform: lowercase;
+}
 .currentTemp {
-    font-size: 36px;
-    font-weight: 400;
+    font-size: 55px;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.currentTemp sup{
+    font-size: 30px;
 }
 p{
     font-size: 20px;
     font-weight: 300;
 }
-
+#weather-card a.btn{
+    text-transform: uppercase;
+}
 #date {
-    font-weight: 700
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+.icon img{
+    width: 130px;
+    height: 130px;
 }
 .hour-forecast img {
     width: 55px;

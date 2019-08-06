@@ -682,9 +682,9 @@ $(document).ready(function () {
             })
             $("#fahrenheit").click(function (e) {
                 $(".temperature").empty();
-                $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
-                $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
-                $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
+            $(".temperature").append(`<div class="currentTemp">${response.main.temp}º </div>`);
+                $(".temperature").append(`<div> Max: ${response.main.temp_max}º</div> `);
+                $(".temperature").append(`<div> Min: ${response.main.temp_min}º</div>  `);
                 $("#celcius").removeClass("active");
                 $("#fahrenheit").addClass("active");
             })
