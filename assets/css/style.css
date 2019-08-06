@@ -67,3 +67,41 @@ button#locationIcon i.fas{
     margin: 7px;
     background-color: lightgrey;
 }
+
+#convert {
+    color: #fff;
+    background-color: #42CEC9;
+    border-color: #42CEC9;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+#convert:hover {
+    background-color: #1C7E7A;
+    border-color: #1C7E7A;
+}
+
+#currSwitch {
+    color: #fff;
+    border-radius: 0;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    text-transform: uppercase;
+}
+
+#currSwitch:hover {
+    background-color: #353b41;
+    border-color: #30353a;
+}
+
+#currencyformal {
+    flex: auto;
+}
+
+.currencyformal #baseCurrency, #toCurrency {
+    margin: 5px;
+}
+
+#baseCurrency, #toCurrency {
+    background: rgba(224, 222, 204, 0.623);
+}

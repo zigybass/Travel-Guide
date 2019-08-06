@@ -530,6 +530,8 @@ $(document).ready(function () {
             apiWeather();
             currencyAPI();
             urlQuery();
+            $("#base").val("");
+            $("#conversion").val("");
         });
     }); // end locationIcon click
 
@@ -542,6 +544,8 @@ $(document).ready(function () {
         apiWeather();
         urlQuery();
         currencyAPI();
+        $("#base").val("");
+        $("#conversion").val("");
     });
 
     function apiWeather() {
