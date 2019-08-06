@@ -255,6 +255,48 @@ $(document).ready(function () {
         method: "GET",
     }).then(function (response) {
 
+        console.log( localStorage.getItem("City"))
+
+        if ( localStorage.getItem("City") === null ) {
+            cityName = response.city;
+            countryCodel = response.countryCode;
+            console.log(cityName);
+            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+            console.log(countryCodel)
+            //APIs
+
+            apiWeather();
+            currencyAPI();
+            urlQuery();
+            $("#base").val("");
+            $("#conversion").val("");
+            localStorage.setItem("City", cityName);
+            localStorage.setItem("Country", countryCodel);
+            let iLon= response.lon;
+            let iLat= response.lat;
+
+        showTargetLocation(iLon,iLat);
+        } else {
+            cityName = localStorage.getItem("City");
+            countryCodel = localStorage.getItem("Country");
+            console.log(cityName);
+            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+            console.log(countryCodel)
+            //APIs
+
+            apiWeather();
+            currencyAPI();
+            urlQuery();
+            $("#base").val("");
+            $("#conversion").val("");
+            localStorage.setItem("City", cityName);
+            localStorage.setItem("Country", countryCodel);
+            let iLon= response.lon;
+            let iLat= response.lat;
+
+            showTargetLocation(iLon,iLat);
+        }
+        /*
         cityName = response.city;
         countryCodel = response.countryCode;
         console.log(cityName);
@@ -267,10 +309,12 @@ $(document).ready(function () {
         urlQuery();
         $("#base").val("");
         $("#conversion").val("");
+        localStorage.setItem("City", cityName);
+        localStorage.setItem("Country", countryCodel);
         let iLon= response.lon;
         let iLat= response.lat;
 
-        showTargetLocation(iLon,iLat);
+        showTargetLocation(iLon,iLat); */
     });
 
     const countryIdToCurrencyId = {
@@ -556,6 +600,8 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
+            localStorage.setItem("City", cityName);
+            localStorage.setItem("Country", countryCodel);
             let iLon= response.lon;
             let iLat= response.lat;
 
@@ -574,6 +620,8 @@ $(document).ready(function () {
         currencyAPI();
         $("#base").val("");
         $("#conversion").val("");
+        localStorage.setItem("City", cityName);
+        localStorage.setItem("Country", countryCodel);
     });
 
     function apiWeather() {
