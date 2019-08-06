@@ -48,8 +48,12 @@ $(document).ready(function(){
                 $("#forecast").append(` <div class="day col-12">
                                             <div class="container">
                                                 <h3>${dateString} </h3>
-                                                <div class="day-detail-${key} row"></div>
-                                                <canvas id="chart${key}" width="500px" height="100px"></canvas>
+                                                <div class="info-container">
+                                                    <div class="day-detail-${key} row"></div>
+                                                    <div class="chartContainer">
+                                                        <canvas id="chart${key}"></canvas>
+                                                    </div>
+                                                </div>
                                             </div>    
                                         </div>`
                                      );
@@ -86,6 +90,7 @@ $(document).ready(function(){
                         }]
                     },
                     options: {
+                        aspectRatio: 5,
                         legend:{
                             display: false
                         },
