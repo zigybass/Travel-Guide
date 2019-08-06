@@ -605,43 +605,34 @@ $(document).ready(function () {
             const currencyIdArray = Object.keys(response.rates);
             console.log(currencyIdArray);
 
-            // Appends country IDs into dropdown for currency selections
 
-
-            // Converts input country data to country's currency
-            let countryId = countryCodel;//this value should be equal to 2-Letter country code from IP-API or input box. 
+            // Converts input country data to country's currency 
             let userCurr = "USD";
+            let countryCurr = countryIdToCurrencyId[countryCodel];
 
-            let countryCurr = countryIdToCurrencyId[countryId];
-            //console.log(countryCurr)
-            let ratio = response.rates[countryCurr];
-            let ratio1 = response.rates[$("#toCurrency :selected").val()]
-            console.log(ratio1)
-            //console.log(ratio);
+            let flipCounter = 3;
 
-            
             $("#baseCurrency").val(userCurr);
             $("#toCurrency").val(countryCurr);
 
-
+            let b = $("#baseCurrency option:selected").val()
+            let t = $("#toCurrency option:selected").val()
 
             // Converts USD to target Currency.
-            function currencyConverter(currNum, ratio) {
-
-                return currNum * ratio;
-                console.log(convertedRate);
+            function currencyConverter(currNum) {
+                let ratio = response.rates[countryCurr]
+                if ( flipCounter % 2 !== 0 ) {
+                    return currNum * ratio;
+                } else {
+                    return currNum / ratio;
+                }
             };
-            // Converts target Currency back to USD
-            function flipConverter(currNum, ratio) {
-                return currNum / ratio;
-            }
 
             // WIP: converts currencies on click. 
             $("#convert").on("click", function (e) {
                 e.preventDefault();
                 let baseCurr = $("#base").val();
-                let convertedRate = currencyConverter(baseCurr, ratio);
-                console.log(convertedRate);
+                let convertedRate = currencyConverter(baseCurr);
                 $("#conversion").val(convertedRate);
                 //$("#target").text(`<input type="text" ${currencyConverter(baseCurr, ratio)} />`)
                 console.log(baseCurr);
@@ -649,11 +640,20 @@ $(document).ready(function () {
 
             $("#currSwitch").on("click", function (e) {
                 e.preventDefault();
-                let target = $("#target").val();
-                $("#base").text(flipConverter(target, ratio));
-                console.log(target);
+                $("#conversion").val("")
+                $("#base").val("")
+                flipCounter++;
+                if ( flipCounter % 2 == 0 ) {
+                    $("#baseCurrency").val(t);
+                    $("#toCurrency").val(b);
+            } else { 
+                $("#baseCurrency").val(b);
+                $("#toCurrency").val(t);
+            }
+                //let target = $("#target").val();
+                //$("#base").text(flipConverter(target));
+                //console.log(target);
             })
-
 
 
         })
