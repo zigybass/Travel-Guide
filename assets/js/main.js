@@ -663,6 +663,7 @@ $(document).ready(function () {
             const dateString = date.toDateString().toLocaleUpperCase();
             // $("#city-name").text(`City Name: ${response.name}`);
             // $("#city-id").text(`City ID: ${response.id}`);
+            emptyWeather();
             $("#date").text(dateString);
             $(".icon").append(`<img src="./assets/images/forecast/${response.weather[0].icon}.svg" alt="">  `);
             $(".icon").append(`<p>${response.weather[0].description}</p>`);
@@ -670,6 +671,23 @@ $(document).ready(function () {
             $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
             $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
            
+            $("#celcius").click(function(e){
+                $(".temperature").empty();
+                $(".temperature").append(`<div class="currentTemp">${mainCelcius}<sup>o</sup></div>`);
+                $(".temperature").append(`<div> Max: ${maxCelcius} <sup>o</sup></div> `);
+                $(".temperature").append(`<div> Min: ${minCelcius} <sup>o</sup></div>  `); 
+                $("#celcius").addClass("active");   
+                $("#fahrenheit").removeClass("active");   
+
+            })
+            $("#fahrenheit").click(function(e){
+                $(".temperature").empty();
+                $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
+                $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
+                $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);  
+
+            })
+       
        
         });
 
@@ -681,11 +699,18 @@ $(document).ready(function () {
             console.log(weekForecastURL);
         });
 
-
     } //weather API ends
+    
+    function emptyWeather(){
+        $("#date").text("");
+        $(".icon").empty();
+        $(".temperature").empty();
+    }
+    
+  
+    
     //******************************************************************************************************************************** */
     //Currency API starts
-
     function currencyAPI() {
 
         $("baseCurrency").val()
