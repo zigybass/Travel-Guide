@@ -533,6 +533,7 @@ $(document).ready(function () {
             let iLon= response.lon;
             let iLat= response.lat;
 
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
         });
     }); // end locationIcon click
@@ -580,6 +581,7 @@ $(document).ready(function () {
             //(78°F − 32) × 5/9 = 25.556°C
 
 
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
 
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
