@@ -15,70 +15,56 @@
 </head>
 
 <body>
-        <header>
-                <div class="container">
-                        <div class="row">
-                                <div class="col">
-                                        <nav class="navbar navbar-expand-lg navbar-light">
-                                                <a class="navbar-brand" href="#">Let's travel</a>
-                                                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                                        data-target="#navbarSupportedContent"
-                                                        aria-controls="navbarSupportedContent" aria-expanded="false"
-                                                        aria-label="Toggle navigation">
-                                                        <span class="navbar-toggler-icon"></span>
-                                                </button>
-
-                                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                                        <ul class="navbar-nav ml-auto">
-                                                                <li class="nav-item active">
-                                                                        <a class="nav-link" href="#">Home <span
-                                                                                        class="sr-only">(current)</span></a>
-                                                                </li>
-                                                        </ul>
-                                                </div>
-                                        </nav>
-                                </div>
-                        </div>
-                        <div class="row">
-                                <div class="col-10">
-                                        <form>
-                                                <div class="form-group">
-                                                        <label class="city">Type City</label>
-                                                        <input type="input" class="form-control" id="cityInput"
-                                                                placeholder="Enter City">
-                                                </div>
-                                                <div class="form-group">
-                                                        <label for="countryname">Select Country</label>
-                                                        <select class="form-control" id="countryList">
-                                                                <option disabled selected value> Select a country --
-                                                                </option>
-                                                        </select>
-                                                </div>
-                                                <button id="citySubmit" type="submit"
-                                                        class="btn btn-primary">Submit</button>
-                                        </form>
-                                </div>
-                                <div class="col-2">
-                                        <button type="submit" id="locationIcon"><i
-                                                        class="fas fa-crosshairs"></i></button>
-                                </div>
-                        </div>
-                </div>
-        </header>
+    <header>
         <div class="container">
+            <div class="row">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="#">Let's travel</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                    </nav>
+                </div>
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-12 col-md-6">
+                    <form>
+                        <div class="form-group">
+                            <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" id="countryList">
+                                <option disabled selected value> Select a country -- </option>
+                            </select>
+                        </div>
+                        <button id="citySubmit" type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-12 col-md-2 text-center location">
+                    <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
+                    <p>Use your current location</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
 
                 <div class="row">
                         <div class="col" id="cityName">
-                                <h3> Welcome to the City </h3>
+                                <h3> Welcome to the <strong>City</strong> </h3>
                         </div>
                 </div>
                 <div class="row">
-                        <div class="col">
-                                <h5>Current time goes here!</h5>
-                        </div>
-                </div>
-                <div class="row">
-                        <div class="col">
+                        <div id="weather-section" class="col-12 col-md-6">
                                 <div class="card">
                                         <div id="weather-card" class="card-body">
                                                 <div class="row">
@@ -105,7 +91,7 @@
                                         </div>
                                 </div>
                         </div>
-                        <div class="col">
+                        <div class="col-12 col-md-6">
                                 <div class="card">
                                         <div class="card-body">
                                                 <h5 class="card-title">Convert your Currency!</h5>
@@ -154,10 +140,10 @@
                                         </p>
                                 </div>
                         </div>
-                </div>
-        </div>
+                
+    </div>
         <!--The beginning of translation-->
-        <div id="translate-section" >
+    <div id="translate-section" class="container-fluid">
             <div class="row title">
                 <div class="col">
                     <h3>Translate what you want</h3>
@@ -754,22 +740,33 @@
                             </div>
             </div>
 
-                </div>
-        </div>
+                
+    </div>
         <!--The end of translation-->
-        </div>
 
         <!--The beginning of zomato-->
-        <div class="row">
+    <div id="zomato-section">   
+        <div class="container">
+            <div class="row">
                 <div class="col">
-                        <div id="zomatoDiv" class="card-columns">
-
-                        </div>
-
+                    <h3>Find the best restaurants in the city!</h3>
                 </div>
+            </div>
+            <div class="row">
+                    <div class="col">
+                            <div id="zomatoDiv" class="card-columns">
 
-        </div>
+                            </div>
 
+                    </div>
+
+            </div>
+        </div> 
+    </div>
+    <footer class="text-center">
+            <a class="navbar-brand" href="./index.html">Let's travel</a>        
+            <p>Work team!</p>
+    </footer>
 
         <!--The end of zomato-->
 

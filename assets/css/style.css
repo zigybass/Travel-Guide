@@ -1,5 +1,4 @@
 body {
-    background: #f2f2f2;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -12,6 +11,15 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    padding-bottom: 70px;
+    margin-bottom: 50px;
+}
+
+header form {
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    border-bottom: solid thin #FFF;
+    text-align: center;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -25,7 +33,32 @@ header {
 .navbar-light .navbar-brand {
     font-family: 'Shadows Into Light', cursive;
     color: #FFF;
-    font-size: 40px;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+#cityName h3 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.location p{
+    text-transform: uppercase;
+    color: #42CEC9;
+    font-weight: 700;
+    padding-top: 10px;
+}
+button#citySubmit {
+    padding: 10px 40px;
+    width: 100%;
+}
+
+#weather-section{
+    background: #f2f2f2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
 }
 
 .hour-forecast img {
@@ -71,16 +104,22 @@ button#locationIcon i.fas {
     background-color: lightgrey;
 }
 
+#translate-section{
+    margin-top: 50px;
+}
 #translate-section .title {
     background: url('../images/translate.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     text-align: center;
-    padding: 120px 20px;
+    padding: 40px 20px 100px;
     font-family: 'Shadows Into Light', cursive;
     color: #FFF;
-    font-size: 40px;
+}
+#translate-section .title h3{
+    font-size: 35px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
 }
 
 #translate-section .container {
@@ -96,4 +135,42 @@ button#deleteIndividual {
 
 button#clearAllTranslations i {
     margin: 10px;
+}
+
+#zomato-section {
+    margin-top: 50px;
+    background: #f2f2f2;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+footer{
+    background: #1C7E7A;
+    padding: 20px 30px;
+    color: #FFF;
+}
+footer a.navbar-brand{
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFF;
+    font-size: 50px;
+}
+@media only screen and (min-width: 768px) {
+    header form {
+        border-bottom: none;
+        padding-right: 50px;
+        border-right: solid thin #FFF;
+        text-align: left;
+    }
+    .navbar-light .navbar-brand {
+        font-size: 70px;
+    }
+    button#citySubmit {
+        padding: 10px 40px;
+        width: auto;
+    }
+    #weather-section {
+        background: #fff;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
 }
