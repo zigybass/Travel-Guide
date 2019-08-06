@@ -535,6 +535,7 @@ $(document).ready(function () {
             let iLon= response.lon;
             let iLat= response.lat;
 
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
         });
     }); // end locationIcon click
@@ -569,6 +570,7 @@ $(document).ready(function () {
             let iLon= response.coord.lon;
             let iLat= response.coord.lat;
 
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
 
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
