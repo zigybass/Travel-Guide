@@ -1,30 +1,66 @@
-body{
-    background: #f2f2f2;
+body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2{
+h1, h2, h3{
     font-family: 'Shadows Into Light', cursive;
 }
 
-header{
+header {
     background: url('../images/header.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    padding-bottom: 70px;
+    margin-bottom: 50px;
 }
-.navbar-light .navbar-nav .nav-link{
-   color: #FFF;
+
+header form {
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+    border-bottom: solid thin #FFF;
+    text-align: center;
 }
-.navbar-light .navbar-nav .active>.nav-link{
+
+.navbar-light .navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
     color: #42CEC9;
 }
 
-.navbar-light .navbar-brand{
+.navbar-light .navbar-brand {
     font-family: 'Shadows Into Light', cursive;
     color: #FFF;
-    font-size: 40px;
+    font-size: 50px;
+    margin-bottom: 30px;
 }
+
+#cityName h3 {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.location p{
+    text-transform: uppercase;
+    color: #42CEC9;
+    font-weight: 700;
+    padding-top: 10px;
+}
+button#citySubmit {
+    padding: 10px 40px;
+    width: 100%;
+}
+
+#weather-section{
+    background: #f2f2f2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+}
+
 .hour-forecast img {
     width: 100px;
     height: 100px;
@@ -38,12 +74,12 @@ header{
     border-radius: 0;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #1C7E7A;
     border-color: #1C7E7A;
-} 
+}
 
-button#locationIcon{
+button#locationIcon {
     background-color: #42CEC9;
     border-color: #42CEC9;
     height: 100px;
@@ -51,7 +87,7 @@ button#locationIcon{
     border-radius: 50px;
 }
 
-button#locationIcon i.fas{
+button#locationIcon i.fas {
     color: #FFF;
     font-size: 40px;
 }
@@ -104,4 +140,74 @@ button#locationIcon i.fas{
 
 #baseCurrency, #toCurrency {
     background: rgba(224, 222, 204, 0.623);
+}
+#translate-section{
+    margin-top: 50px;
+}
+#translate-section .title {
+    background: url('../images/translate.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding: 40px 20px 100px;
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFF;
+}
+#translate-section .title h3{
+    font-size: 35px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+#translate-section .container {
+    margin-top: -50px;
+}
+
+button#deleteIndividual {
+    border-color: #42CEC9;
+    color: white;
+    border-radius: 50%;
+    background-color: #42CEC9;
+}
+
+button#clearAllTranslations i {
+    margin: 10px;
+}
+
+#zomato-section {
+    margin-top: 50px;
+    background: #f2f2f2;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+footer{
+    background: #1C7E7A;
+    padding: 20px 30px;
+    color: #FFF;
+}
+footer a.navbar-brand{
+    font-family: 'Shadows Into Light', cursive;
+    color: #FFF;
+    font-size: 50px;
+}
+@media only screen and (min-width: 768px) {
+    header form {
+        border-bottom: none;
+        padding-right: 50px;
+        border-right: solid thin #FFF;
+        text-align: left;
+    }
+    .navbar-light .navbar-brand {
+        font-size: 70px;
+    }
+    button#citySubmit {
+        padding: 10px 40px;
+        width: auto;
+    }
+    #weather-section {
+        background: #fff;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
 }

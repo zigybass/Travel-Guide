@@ -532,6 +532,10 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
+            let iLon= response.lon;
+            let iLat= response.lat;
+
+            showTargetLocation(iLon,iLat);
         });
     }); // end locationIcon click
 
@@ -562,13 +566,24 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
 
+            let iLon= response.coord.lon;
+            let iLat= response.coord.lat;
+
+            showTargetLocation(iLon,iLat);
+
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
             console.log(weatherURL);
+
+            const date = new Date(response.dt * 1000); 
+            const dateString = date.toDateString()
             // $("#city-name").text(`City Name: ${response.name}`);
             // $("#city-id").text(`City ID: ${response.id}`);
-            $("#weatherCity").text(`Main Temp : ${response.main.temp},  `);
-            $("#weatherCity").append(`Min Temp : ${response.main.temp_min},  `);
-            $("#weatherCity").append(`Max Temp : ${response.main.temp_max}   `);
+            $("#date").text(dateString);
+            $(".icon").append(`<img src="./assets/images/forecast/${response.weather[0].icon}.svg" alt="">  `);
+            $(".icon").append(`<p>${response.weather[0].description}</p>`);
+            $(".temperature").append(`<div class="currentTemp">${response.main.temp}</div>`);
+            $(".temperature").append(`<p> Min: ${response.main.temp_min} </p> `);
+            $(".temperature").append(`<p> Max: ${response.main.temp_max} </p>  `);
 
         });
 
