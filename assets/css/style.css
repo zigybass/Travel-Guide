@@ -130,7 +130,6 @@ button#locationIcon i.fas {
 .dropdown-output-language {
     float: left;
     margin: 7px;
-  
 }
 
 #exampleFormControlSelect2{
@@ -180,6 +179,10 @@ button#locationIcon i.fas {
 #translateButton {
     background-color: #42CEC9;
     border-color: #42CEC9;
+}
+#exampleFormControlSelect2{
+    height: 200px !important;
+    border: none;
 }
 
 #translate-section .title{

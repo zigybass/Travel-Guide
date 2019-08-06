@@ -249,7 +249,7 @@ $(document).ready(function () {
         'ZW': 'Zimbabwe',
     }
 
-    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode";
+    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode,lat,lon";
     $.ajax({
         url: queryURL,
         method: "GET",
