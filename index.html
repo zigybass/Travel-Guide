@@ -89,14 +89,26 @@
                         <h6 class="card-subtitle mb-2 text-muted">Currency for the country</h6>
                         <p class="card-text">
                             <!--Currency Form below-->
-                            <select class="form-row currency" id="baseCurrency">
-                                    <option>Select Currency</option>
-                                  </select>
-                                  <input type="text" class="form-row" id="base" aria-label="Text input with dropdown button">
-                              <select class="form-row currency" id="toCurrency"> 
-                                    <option>Select Currency</option>
-                                  </select>
-                                <input type="text" class="form-row"  id="conversion" aria-label="Text input with dropdown button">
+                            <div class="row">
+                                    <column class="col-6">
+                                        <select class="form-row currency" id="baseCurrency">
+                                                <option>Select Currency</option>
+                                        </select>
+                                        </column>
+                                    <column class="col-6">
+                                        <input type="text" class="form-row" id="base" aria-label="Text input with dropdown button">
+                                </column>
+                            </div>
+                            <div class="row">
+                                    <column class="col-6">
+                                        <select class="form-row currency" id="toCurrency"> 
+                                                 <option>Select Currency</option>
+                                        </select>
+                                </column>
+                                    <column class="col-6">
+                                        <input type="text" class="form-row"  id="conversion" aria-label="Text input with dropdown button">
+                                </column>
+                            </div>
                               </div>
                               <button type="button" class="btn btn-primary m-3 col-11" id="convert">Convert</button>
                               <button type="button" class="btn btn-secondary btn-sm m-3 col-11" id="currSwitch">Switch Currencies</button>
