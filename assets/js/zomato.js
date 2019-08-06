@@ -11,9 +11,9 @@ function showTargetLocation(lon, lat) {
       console.log(response.nearby_restaurants);
 
       for (i = 0; i < response.nearby_restaurants.length; i++) {
-        let image = "https://dummyimage.com/200x200/6b6b6b/00fff7&text=+Restaurant";
-        if (!(response.nearby_restaurants[i].restaurant.thumb == ""))
-          image = response.nearby_restaurants[i].restaurant.thumb;
+        let image = "https://dummyimage.com/1200x464/6b6b6b/00fff7&text=+Restaurant";
+        if (!(response.nearby_restaurants[i].restaurant.featured_image == ""))
+          image = response.nearby_restaurants[i].restaurant.featured_image;
 
         $("#zomatoDiv").append(`
          <div class="card zomato-card text-center">
@@ -23,9 +23,12 @@ function showTargetLocation(lon, lat) {
              <p class="card-text">${response.nearby_restaurants[i].restaurant.location.address}</p>
              <a href="${response.nearby_restaurants[i].restaurant.url}" class="btn btn-primary">Visit</a>
            </div>
+           <div class="card-footer">
+           <small class="text-muted">${response.nearby_restaurants[i].restaurant.cuisines}</small>
+           </div>
          </div>
          `);
-        if (i >= 4) break;
+        if (i >= 5) break;
       }
       $(".card").attr("align", "center");
     }
