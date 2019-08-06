@@ -52,6 +52,7 @@ header form {
 button#citySubmit {
     padding: 10px 40px;
     width: 100%;
+    background-color: #42CEC9;
 }
 
 #weather-section{
@@ -122,25 +123,23 @@ button#locationIcon i.fas {
     background-color: #42CEC9;
     border-color: #42CEC9;
     text-transform: uppercase;
-    border-radius: 0;
 }
 
-#convert:hover {
+#convert:hover, #translateButton:hover {
     background-color: #1C7E7A;
     border-color: #1C7E7A;
 }
 
 #currSwitch {
     color: #fff;
-    border-radius: 0;
     background-color: #6c757d;
     border-color: #6c757d;
     text-transform: uppercase;
 }
 
 #currSwitch:hover {
-    background-color: #353b41;
-    border-color: #30353a;
+    background-color: #5a6269;
+    border-color: #41484e;
 }
 
 #currencyformal {
@@ -156,7 +155,13 @@ button#locationIcon i.fas {
 }
 #translate-section{
     margin-top: 50px;
+}   
+
+#translateButton {
+    background-color: #42CEC9;
+    border-color: #42CEC9;
 }
+ß
 #translate-section .title {
     background: url('../images/translate.jpg');
     background-repeat: no-repeat;
