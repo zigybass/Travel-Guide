@@ -76,8 +76,8 @@ p{
     font-weight: 700
 }
 .hour-forecast img {
-    width: 100px;
-    height: 100px;
+    width: 55px;
+    height: 55px;
 }
 
 .btn-primary {
@@ -85,7 +85,6 @@ p{
     background-color: #42CEC9;
     border-color: #42CEC9;
     text-transform: uppercase;
-    border-radius: 0;
 }
 
 .btn-primary:hover {
@@ -161,8 +160,8 @@ button#locationIcon i.fas {
     background-color: #42CEC9;
     border-color: #42CEC9;
 }
-ß
-#translate-section .title {
+
+#translate-section .title{
     background: url('../images/translate.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -208,6 +207,83 @@ footer a.navbar-brand{
     color: #FFF;
     font-size: 50px;
 }
+.forecast-page header h1{
+    color: #42CEC9;
+    font-size: 50px;
+    padding-left: 20px
+}
+.forecast-page .navbar-light .navbar-brand{
+    margin-bottom:0;
+}
+.day{
+    margin-bottom: 50px;
+    align-items: flex-end;
+}
+
+.day:nth-child(even){
+    background: #f2f2f2;
+    padding: 60px 0;
+}
+.day:last-child{
+    margin-bottom: 0;
+}
+
+.day .row{
+    align-items: flex-end;
+    margin-bottom: -5px;
+    min-width: 720px;
+}
+
+.day h3{
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+.day p{
+    margin-bottom: 0;
+}
+.day .hour-forecast p{
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.day .hour-forecast p span{
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+}
+.day .hour-forecast:nth-child(1){
+    text-align: left;
+}
+.day .hour-forecast{
+    text-align: center;
+}
+.day .hour-forecast:last-child{
+    text-align: right;
+}
+.btn-group .btn-primary:not(:disabled):not(.disabled).active{
+    background: #42CEC9;
+    border-color: #42CEC9;
+}
+.temp-buttons button {
+    opacity: 0.8;
+}
+
+.temp-buttons button.active{
+    opacity: 1;
+}
+
+.chartContainer {
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .chartContainer {
+        width: 720px;
+    }
+    .info-container {
+        overflow: scroll;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     header form {
         border-bottom: none;
@@ -228,4 +304,26 @@ footer a.navbar-brand{
         padding-bottom: 0px;
         margin-bottom: 0px;
     }
+    .forecast-page .temp-buttons{
+        margin-right: 50px;
+    }
+    .info-container {
+        overflow: none;
+    }
 }
+
+@media only screen and (min-width: 991px) {
+    .hour-forecast img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .hour-forecast img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+

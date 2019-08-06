@@ -3,21 +3,21 @@ $(document).ready(function(){
         console.log(window.location.search)
         const url = window.location;
         const params = new URLSearchParams(url.search);
-        const cityName = localStorage.getItem("City");
-        const countryCodel = localStorage.getItem("Country");
+        const cityName = params.get("city");
+        const countryCodel = params.get("countryCode");
 
         console.log(window.location.search)
         console.log(params);
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
-        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&units=imperial&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&units=imperial&appid=${apiKeyWeather}`;
         $.ajax({
            url: weatherURL,
            method: "GET",
         }).then(function(response){
             console.log(response);
             console.log(weatherURL);
-            $("#city-name").text(`City Name: ${response.name}`);
+            $("#city-name").text(`${response.name}, ${countryCodel} `);
             $("#today-date").text(`City Name: ${response.name}`);
         });
 
@@ -47,9 +47,15 @@ $(document).ready(function(){
                 const date = new Date(value[0].dt * 1000); 
                 const dateString = date.toDateString()
                 $("#forecast").append(` <div class="day col-12">
-                                            <h3>${dateString} </h3>
-                                            <div class="day-detail-${key} row"></div>
-                                            <canvas id="chart${key}" width="500px" height="100px"></canvas>
+                                            <div class="container">
+                                                <h3>${dateString} </h3>
+                                                <div class="info-container">
+                                                    <div class="day-detail-${key} row"></div>
+                                                    <div class="chartContainer">
+                                                        <canvas id="chart${key}"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>    
                                         </div>`
                                      );
                 const hoursPerDay = []; // Labels for Chart
@@ -59,10 +65,10 @@ $(document).ready(function(){
                 value.forEach(function(element){
                     const date = new Date(element.dt * 1000); 
                     const hour = date.getHours() > 12 ? date.getHours() - 12 + "pm" : date.getHours() + "am";
-                    $(`.day-detail-${key}`).append(`<div class="hour-forecast col text-center">
-                                                        <p>Max T.: ${element.main.temp_max}</p>
+                    $(`.day-detail-${key}`).append(`<div class="hour-forecast col">
                                                         <p>${element.weather[0].description}</p>
-                                                        <img src="./assets/images/forecast/${element.weather[0].icon}.svg" alt="">                        
+                                                        <img src="./assets/images/forecast/${element.weather[0].icon}.svg" alt="">
+                                                        <p>Max T.<span>${element.main.temp_max}</span></p>                        
                                                     </div>`)
                     hoursPerDay.push(hour);                                
                     tempPerHour.push(element.main.temp_max);                                
@@ -85,6 +91,7 @@ $(document).ready(function(){
                         }]
                     },
                     options: {
+                        aspectRatio: 5,
                         legend:{
                             display: false
                         },
