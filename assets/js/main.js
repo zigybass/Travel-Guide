@@ -182,7 +182,7 @@ $(document).ready(function () {
         'QA': 'Qatar',
         'RE': 'Reunion',
         'RO': 'Romania',
-        'RU': 'Russian Federation',
+        'RU': 'Russia',
         'RW': 'Rwanda',
         'BL': 'Saint Barthelemy',
         'SH': 'Saint Helena',
@@ -255,9 +255,9 @@ $(document).ready(function () {
         method: "GET",
     }).then(function (response) {
 
-        console.log( sessionStorage.getItem("City"))
+        console.log(sessionStorage.getItem("City"))
 
-        if ( sessionStorage.getItem("City") === null ) {
+        if (sessionStorage.getItem("City") === null) {
             cityName = response.city;
             countryCodel = response.countryCode;
             console.log(cityName);
@@ -272,10 +272,10 @@ $(document).ready(function () {
             $("#conversion").val("");
             sessionStorage.setItem("City", cityName);
             sessionStorage.setItem("Country", countryCodel);
-            let iLon= response.lon;
-            let iLat= response.lat;
+            let iLon = response.lon;
+            let iLat = response.lat;
 
-        showTargetLocation(iLon,iLat);
+            showTargetLocation(iLon, iLat);
         } else {
             cityName = sessionStorage.getItem("City");
             countryCodel = sessionStorage.getItem("Country");
@@ -291,10 +291,10 @@ $(document).ready(function () {
             $("#conversion").val("");
             sessionStorage.setItem("City", cityName);
             sessionStorage.setItem("Country", countryCodel);
-            let iLon= response.lon;
-            let iLat= response.lat;
+            let iLon = response.lon;
+            let iLat = response.lat;
 
-            showTargetLocation(iLon,iLat);
+            showTargetLocation(iLon, iLat);
         }
         /*
         cityName = response.city;
@@ -571,8 +571,8 @@ $(document).ready(function () {
 
     for (let [key, value] of Object.entries(countryCode)) {
         $("#countryList").append(`<option value=${key}>${value}</option>`)
-    }   
-    
+    }
+
 
     //************************************************************************************************************************* */
 
@@ -600,11 +600,11 @@ $(document).ready(function () {
             $("#conversion").val("");
             sessionStorage.setItem("City", cityName);
             sessionStorage.setItem("Country", countryCodel);
-            let iLon= response.lon;
-            let iLat= response.lat;
+            let iLon = response.lon;
+            let iLat = response.lat;
 
             $("#zomatoDiv").empty();
-            showTargetLocation(iLon,iLat);
+            showTargetLocation(iLon, iLat);
         });
     }); // end locationIcon click
 
@@ -637,14 +637,14 @@ $(document).ready(function () {
             method: "GET",
         }).then(function (response) {
 
-            let iLon= response.coord.lon;
-            let iLat= response.coord.lat;
-            let mainCelcius = (response.main.temp - 32) * 5/9;
-            let maxCelcius = (response.main.temp_max - 32) * 5/9;
-            let minCelcius = (response.main.temp_min - 32) * 5/9;
+            let iLon = response.coord.lon;
+            let iLat = response.coord.lat;
+            let mainCelcius = (response.main.temp - 32) * 5 / 9;
+            let maxCelcius = (response.main.temp_max - 32) * 5 / 9;
+            let minCelcius = (response.main.temp_min - 32) * 5 / 9;
             mainCelcius = mainCelcius.toFixed(2);
-            maxCelcius= maxCelcius.toFixed(2);
-            minCelcius= minCelcius.toFixed(2);
+            maxCelcius = maxCelcius.toFixed(2);
+            minCelcius = minCelcius.toFixed(2);
             console.log(mainCelcius);
             console.log(maxCelcius);
             console.log(minCelcius);
@@ -654,12 +654,12 @@ $(document).ready(function () {
 
 
             $("#zomatoDiv").empty();
-            showTargetLocation(iLon,iLat);
+            showTargetLocation(iLon, iLat);
 
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
             console.log(weatherURL);
-            
-            const date = new Date(response.dt * 1000); 
+
+            const date = new Date(response.dt * 1000);
             const dateString = date.toDateString().toLocaleUpperCase();
             // $("#city-name").text(`City Name: ${response.name}`);
             // $("#city-id").text(`City ID: ${response.id}`);
@@ -670,25 +670,26 @@ $(document).ready(function () {
             $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
             $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
             $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
-           
-            $("#celcius").click(function(e){
+
+            $("#celcius").click(function (e) {
                 $(".temperature").empty();
                 $(".temperature").append(`<div class="currentTemp">${mainCelcius}<sup>o</sup></div>`);
                 $(".temperature").append(`<div> Max: ${maxCelcius} <sup>o</sup></div> `);
-                $(".temperature").append(`<div> Min: ${minCelcius} <sup>o</sup></div>  `); 
-                $("#celcius").addClass("active");   
-                $("#fahrenheit").removeClass("active");   
+                $(".temperature").append(`<div> Min: ${minCelcius} <sup>o</sup></div>  `);
+                $("#celcius").addClass("active");
+                $("#fahrenheit").removeClass("active");
 
             })
-            $("#fahrenheit").click(function(e){
+            $("#fahrenheit").click(function (e) {
                 $(".temperature").empty();
                 $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
                 $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
-                $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);  
-
+                $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
+                $("#celcius").removeClass("active");
+                $("#fahrenheit").addClass("active");
             })
-       
-       
+
+
         });
 
         $.ajax({
@@ -700,15 +701,15 @@ $(document).ready(function () {
         });
 
     } //weather API ends
-    
-    function emptyWeather(){
+
+    function emptyWeather() {
         $("#date").text("");
         $(".icon").empty();
         $(".temperature").empty();
     }
-    
-  
-    
+
+
+
     //******************************************************************************************************************************** */
     //Currency API starts
     function currencyAPI() {
@@ -727,9 +728,9 @@ $(document).ready(function () {
             for (let [key] of Object.entries(response.rates)) {
                 $("#baseCurrency").append(`<option>${key}</option>`)
                 $("#toCurrency").append(`<option>${key}</option>`)
-        
+
             }
-            
+
 
             // Creates array of Currency IDs for form
             const currencyIdArray = Object.keys(response.rates);
@@ -745,13 +746,10 @@ $(document).ready(function () {
             $("#baseCurrency").val(userCurr);
             $("#toCurrency").val(countryCurr);
 
-            let b = $("#baseCurrency option:selected").val()
-            let t = $("#toCurrency option:selected").val()
-
             // Converts USD to target Currency.
-            function currencyConverter(currNum) {
-                let ratio = response.rates[countryCurr]
-                if ( flipCounter % 2 !== 0 ) {
+            function currencyConverter(currNum, countryCode) {
+                let ratio = response.rates[countryCode]
+                if (flipCounter % 2 !== 0) {
                     return currNum * ratio;
                 } else {
                     return currNum / ratio;
@@ -761,25 +759,28 @@ $(document).ready(function () {
             // WIP: converts currencies on click. 
             $("#convert").on("click", function (e) {
                 e.preventDefault();
-                let baseCurr = $("#base").val();
-                let convertedRate = currencyConverter(baseCurr);
-                $("#conversion").val(convertedRate);
+                const baseCurr = $("#base").val();
+                const countryCode = $("#toCurrency option:selected").val()
+                let convertedRate = currencyConverter(baseCurr, countryCode);
+                $("#conversion").val(convertedRate.toFixed(2));
                 //$("#target").text(`<input type="text" ${currencyConverter(baseCurr, ratio)} />`)
                 console.log(baseCurr);
             });
 
             $("#currSwitch").on("click", function (e) {
                 e.preventDefault();
+                const b = $("#baseCurrency option:selected").val()
+                const t = $("#toCurrency option:selected").val()
                 $("#conversion").val("")
                 $("#base").val("")
                 flipCounter++;
-                if ( flipCounter % 2 == 0 ) {
+                if (flipCounter % 2 == 0) {
                     $("#baseCurrency").val(t);
                     $("#toCurrency").val(b);
-            } else { 
-                $("#baseCurrency").val(b);
-                $("#toCurrency").val(t);
-            }
+                } else {
+                    $("#baseCurrency").val(b);
+                    $("#toCurrency").val(t);
+                }
                 //let target = $("#target").val();
                 //$("#base").text(flipConverter(target));
                 //console.log(target);
@@ -791,9 +792,9 @@ $(document).ready(function () {
 
     }//end of currencyAPI
 
-    function urlQuery(){
-        const forecastURL = `./forecast.html?city=${cityName}&countryCode=${countryCodel}` 
-        $("#weather-card a").attr("href",forecastURL);
+    function urlQuery() {
+        const forecastURL = `./forecast.html?city=${cityName}&countryCode=${countryCodel}`
+        $("#weather-card a").attr("href", forecastURL);
     }
 
 });  // end onf document.ready
