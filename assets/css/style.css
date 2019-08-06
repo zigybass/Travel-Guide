@@ -201,9 +201,34 @@ button#locationIcon i.fas {
 }
 
 #translate-section .container {
-    margin-top: -50px;
+    margin-top: 50px;
 }
-
+#translate-section .card-title {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+}
+#translate-section .form-group label{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 15px;
+    min-height: 18px;
+}
+.previous-translation{
+    margin-top: 20px;
+}
+.previous-translation h4{
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.previous-translation  .form-row{
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 12px;
+}
 button#deleteIndividual {
     border-color: #42CEC9;
     color: white;
@@ -333,6 +358,9 @@ footer a.navbar-brand{
     }
     .info-container {
         overflow: none;
+    }
+    .currentTemp {
+        font-size: 40px;
     }
 }
 
