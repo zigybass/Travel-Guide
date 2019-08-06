@@ -1,9 +1,10 @@
 $(document).ready(function(){
+
         console.log(window.location.search)
         const url = window.location;
         const params = new URLSearchParams(url.search);
-        const cityName = params.get("city");
-        const countryCodel = params.get("countryCode");
+        const cityName = localStorage.getItem("City");
+        const countryCodel = localStorage.getItem("Country");
 
         console.log(window.location.search)
         console.log(params);

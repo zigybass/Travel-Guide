@@ -249,6 +249,74 @@ $(document).ready(function () {
         'ZW': 'Zimbabwe',
     }
 
+    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode";
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    }).then(function (response) {
+
+        console.log( sessionStorage.getItem("City"))
+
+        if ( sessionStorage.getItem("City") === null ) {
+            cityName = response.city;
+            countryCodel = response.countryCode;
+            console.log(cityName);
+            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+            console.log(countryCodel)
+            //APIs
+
+            apiWeather();
+            currencyAPI();
+            urlQuery();
+            $("#base").val("");
+            $("#conversion").val("");
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
+            let iLon= response.lon;
+            let iLat= response.lat;
+
+        showTargetLocation(iLon,iLat);
+        } else {
+            cityName = sessionStorage.getItem("City");
+            countryCodel = sessionStorage.getItem("Country");
+            console.log(cityName);
+            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+            console.log(countryCodel)
+            //APIs
+
+            apiWeather();
+            currencyAPI();
+            urlQuery();
+            $("#base").val("");
+            $("#conversion").val("");
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
+            let iLon= response.lon;
+            let iLat= response.lat;
+
+            showTargetLocation(iLon,iLat);
+        }
+        /*
+        cityName = response.city;
+        countryCodel = response.countryCode;
+        console.log(cityName);
+        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        console.log(countryCodel)
+        //APIs
+
+        apiWeather();
+        currencyAPI();
+        urlQuery();
+        $("#base").val("");
+        $("#conversion").val("");
+        localStorage.setItem("City", cityName);
+        localStorage.setItem("Country", countryCodel);
+        let iLon= response.lon;
+        let iLat= response.lat;
+
+        showTargetLocation(iLon,iLat); */
+    });
+
     const countryIdToCurrencyId = {
         AD: "EUR",
         AE: "AED",
@@ -503,9 +571,7 @@ $(document).ready(function () {
 
     for (let [key, value] of Object.entries(countryCode)) {
         $("#countryList").append(`<option value=${key}>${value}</option>`)
-    }
-
-
+    }   
     
 
     //************************************************************************************************************************* */
@@ -532,9 +598,12 @@ $(document).ready(function () {
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
+            sessionStorage.setItem("City", cityName);
+            sessionStorage.setItem("Country", countryCodel);
             let iLon= response.lon;
             let iLat= response.lat;
 
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
         });
     }); // end locationIcon click
@@ -550,16 +619,18 @@ $(document).ready(function () {
         currencyAPI();
         $("#base").val("");
         $("#conversion").val("");
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
     });
 
     function apiWeather() {
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
-        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
-        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&appid=${apiKeyWeather}`;
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName},${countryCodel}&units=imperial&appid=${apiKeyWeather}`;
+        const weekForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName},${countryCodel}&units=imperial&appid=${apiKeyWeather}`;
         console.log("City: " + cityName + "/  Country:" + countryCodel);
 
-        localStorage.setItem("City", cityName);
-        localStorage.setItem("Country", countryCodel);
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
 
         $.ajax({
             url: weatherURL,
@@ -568,23 +639,38 @@ $(document).ready(function () {
 
             let iLon= response.coord.lon;
             let iLat= response.coord.lat;
+            let mainCelcius = (response.main.temp - 32) * 5/9;
+            let maxCelcius = (response.main.temp_max - 32) * 5/9;
+            let minCelcius = (response.main.temp_min - 32) * 5/9;
+            mainCelcius = mainCelcius.toFixed(2);
+            maxCelcius= maxCelcius.toFixed(2);
+            minCelcius= minCelcius.toFixed(2);
+            console.log(mainCelcius);
+            console.log(maxCelcius);
+            console.log(minCelcius);
 
+
+            //(78°F − 32) × 5/9 = 25.556°C
+
+
+            $("#zomatoDiv").empty();
             showTargetLocation(iLon,iLat);
 
             console.log(response.main.temp, response.main.temp_min, response.main.temp_max);
             console.log(weatherURL);
-
+            
             const date = new Date(response.dt * 1000); 
-            const dateString = date.toDateString()
+            const dateString = date.toDateString().toLocaleUpperCase();
             // $("#city-name").text(`City Name: ${response.name}`);
             // $("#city-id").text(`City ID: ${response.id}`);
             $("#date").text(dateString);
             $(".icon").append(`<img src="./assets/images/forecast/${response.weather[0].icon}.svg" alt="">  `);
             $(".icon").append(`<p>${response.weather[0].description}</p>`);
-            $(".temperature").append(`<div class="currentTemp">${response.main.temp}</div>`);
-            $(".temperature").append(`<p> Min: ${response.main.temp_min} </p> `);
-            $(".temperature").append(`<p> Max: ${response.main.temp_max} </p>  `);
-
+            $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
+            $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
+            $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
+           
+       
         });
 
         $.ajax({
