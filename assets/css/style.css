@@ -55,12 +55,25 @@ button#citySubmit {
 }
 
 #weather-section{
-    background: #f2f2f2;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-bottom: 50px;
 }
+#weather-section .card {
+    height: 100%;   
+}
+.currentTemp {
+    font-size: 36px;
+    font-weight: 400;
+}
+p{
+    font-size: 20px;
+    font-weight: 300;
+}
 
+#date {
+    font-weight: 700
+}
 .hour-forecast img {
     width: 100px;
     height: 100px;
