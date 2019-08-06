@@ -108,14 +108,18 @@ button#locationIcon i.fas {
 .dropdown-input-language {
     float: left;
     margin: 7px;
-    background-color: lightgray;
 }
 
 .dropdown-output-language {
     float: left;
     margin: 7px;
-    background-color: lightgrey;
+  
 }
+
+#exampleFormControlSelect2{
+    height: 200px !important;
+}
+
 
 #convert {
     color: #fff;
