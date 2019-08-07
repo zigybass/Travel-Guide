@@ -150,11 +150,11 @@ function appending(inputText, response, inputLanguageSelection, outputLanguageSe
     $('#yourPreviousTranslations').prepend(`
         <li class="form-row individual-translations ${color}" id="${induvidualTranslationValue}">
                 <div class="form-group col-md-5">
-                        <span class="badge badge-pill badge-info bg-secondary">${inputLanguageSelection}</span>
+                        <span class="badge badge-pill badge-info bg-secondary d-none d-sm-inline">${inputLanguageSelection}</span>
                         <p class="m-2" id="previousTranslationInput">${inputText}</p>
                 </div>
                 <div class="form-group col-10 col-md-5">
-                                        <span class="badge badge-pill badge-info bg-secondary">${outputLanguageSelection}</span>
+                                        <span class="badge badge-pill badge-info bg-secondary d-none d-sm-inline">${outputLanguageSelection}</span>
                                         <p class="m-2" id="previousTranslationOutput">${response}</p>
                 </div>
                 <div class="col-2">

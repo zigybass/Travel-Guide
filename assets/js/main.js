@@ -1,20 +1,28 @@
+// let long;
+// let lat;
 
-$("#locationIcon").on("click", function(){
-    getLocation();
-   });
-   function getLocation() {
+// $("#locationIcon").on("click", function(){
+//     getLocation();
+//    });
+
+let lat;
+let long;
+
+getLocation();
+
+function getLocation() {
        if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(showPosition);
        } else {
          x.innerHTML = "Geolocation is not supported by this browser.";
        }
-     };
-   
-     function showPosition(position) {
+};
+function showPosition(position) {
+        long = position.coords.longitude;
+        lat = position.coords.latitude;
        console.log("Latitude: " + position.coords.latitude + 
        "Longitude " + position.coords.longitude) ;
-     };
-
+};
 
 
 $(document).ready(function () {
@@ -266,78 +274,8 @@ $(document).ready(function () {
         'ZW': 'Zimbabwe',
     }
 
-
-    
-
-
-    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode,lat,lon";
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-    }).then(function (response) {
-
-        console.log(sessionStorage.getItem("City"))
-
-        if (sessionStorage.getItem("City") === null) {
-            cityName = response.city;
-            countryCodel = response.countryCode;
-            console.log(cityName);
-            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
-            console.log(countryCodel)
-            //APIs
-
-            apiWeather();
-            currencyAPI();
-            urlQuery();
-            $("#base").val("");
-            $("#conversion").val("");
-            sessionStorage.setItem("City", cityName);
-            sessionStorage.setItem("Country", countryCodel);
-            let iLon = response.lon;
-            let iLat = response.lat;
-            console.log(iLon, iLat);
-
-            showTargetLocation(iLon, iLat);
-        } else {
-            cityName = sessionStorage.getItem("City");
-            countryCodel = sessionStorage.getItem("Country");
-            console.log(cityName);
-            $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
-            console.log(countryCodel)
-            //APIs
-
-            apiWeather();
-            currencyAPI();
-            urlQuery();
-            $("#base").val("");
-            $("#conversion").val("");
-            sessionStorage.setItem("City", cityName);
-            sessionStorage.setItem("Country", countryCodel);
-            let iLon = response.lon;
-            let iLat = response.lat;
-
-            showTargetLocation(iLon, iLat);
-        }
-        /*
-        cityName = response.city;
-        countryCodel = response.countryCode;
-        console.log(cityName);
-        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
-        console.log(countryCodel)
-        //APIs
-
-        apiWeather();
-        currencyAPI();
-        urlQuery();
-        $("#base").val("");
-        $("#conversion").val("");
-        localStorage.setItem("City", cityName);
-        localStorage.setItem("Country", countryCodel);
-        let iLon= response.lon;
-        let iLat= response.lat;
-
-        showTargetLocation(iLon,iLat); */
-    });
+    let cityName;
+    let countryCodel;
 
     const countryIdToCurrencyId = {
         AD: "EUR",
@@ -588,45 +526,199 @@ $(document).ready(function () {
         ZW: "ZWD"
     }
 
-    let cityName;
-    let countryCodel;
 
     for (let [key, value] of Object.entries(countryCode)) {
         $("#countryList").append(`<option value=${key}>${value}</option>`)
     }
+    console.log(sessionStorage.getItem("City"))
+
+    if (sessionStorage.getItem("City") === null) {
+        cityName = "London";
+        countryCodel = "UK";
+        console.log(cityName);
+        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        console.log(countryCodel)
+        //APIs
+
+        apiWeather();
+        currencyAPI();
+        urlQuery();
+        $("#base").val("");
+        $("#conversion").val("");
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
+        // let iLon = response.lon;
+        // let iLat = response.lat;
+        // console.log(iLon, iLat);
+        // showTargetLocation(iLon, iLat);
+    } else {
+        cityName = sessionStorage.getItem("City");
+        countryCodel = sessionStorage.getItem("Country");
+        console.log(cityName);
+        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        console.log(countryCodel)
+        //APIs
+
+        apiWeather();
+        currencyAPI();
+        urlQuery();
+        $("#base").val("");
+        $("#conversion").val("");
+        sessionStorage.setItem("City", cityName);
+        sessionStorage.setItem("Country", countryCodel);
+        // let iLon = response.lon;
+        // let iLat = response.lat;
+
+        // showTargetLocation(iLon, iLat);
+    }
+    
+
+
+    let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode,lat,lon";
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+    }).then(function (response) {
+
+        // console.log(sessionStorage.getItem("City"))
+
+        // if (sessionStorage.getItem("City") === null) {
+        //     cityName = "London";
+        //     countryCodel = "UK";
+        //     console.log(cityName);
+        //     $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        //     console.log(countryCodel)
+        //     //APIs
+
+        //     apiWeather();
+        //     currencyAPI();
+        //     urlQuery();
+        //     $("#base").val("");
+        //     $("#conversion").val("");
+        //     sessionStorage.setItem("City", cityName);
+        //     sessionStorage.setItem("Country", countryCodel);
+        //     let iLon = response.lon;
+        //     let iLat = response.lat;
+        //     console.log(iLon, iLat);
+
+        //     showTargetLocation(iLon, iLat);
+        // } else {
+        //     cityName = sessionStorage.getItem("City");
+        //     countryCodel = sessionStorage.getItem("Country");
+        //     console.log(cityName);
+        //     $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        //     console.log(countryCodel)
+        //     //APIs
+
+        //     apiWeather();
+        //     currencyAPI();
+        //     urlQuery();
+        //     $("#base").val("");
+        //     $("#conversion").val("");
+        //     sessionStorage.setItem("City", cityName);
+        //     sessionStorage.setItem("Country", countryCodel);
+        //     let iLon = response.lon;
+        //     let iLat = response.lat;
+
+        //     showTargetLocation(iLon, iLat);
+        // }
+        /*
+        cityName = response.city;
+        countryCodel = response.countryCode;
+        console.log(cityName);
+        $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
+        console.log(countryCodel)
+        //APIs
+
+        apiWeather();
+        currencyAPI();
+        urlQuery();
+        $("#base").val("");
+        $("#conversion").val("");
+        localStorage.setItem("City", cityName);
+        localStorage.setItem("Country", countryCodel);
+        let iLon= response.lon;
+        let iLat= response.lat;
+
+        showTargetLocation(iLon,iLat); */
+    });
+
+ 
 
 
     //************************************************************************************************************************* */
 
     //Location API
     $("#locationIcon").on("click", function () {
-
-        let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode";
-
+        console.log("lat" + lat);
+        console.log("long:" + long);
+        const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=abb73e61ebb1b7746ebb817ea591d018`
+        console.log(weatherURL);
         $.ajax({
-            url: queryURL,
+            url: weatherURL,
             method: "GET",
         }).then(function (response) {
 
-            cityName = response.city;
-            countryCodel = response.countryCode;
-            console.log(cityName);
+            cityName = response.name;
+            //console.log(cityName);
             $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
-            console.log(countryCodel)
+            // console.log(countryCodel)
             //APIs
-
-            apiWeather();
             currencyAPI();
             urlQuery();
             $("#base").val("");
             $("#conversion").val("");
             sessionStorage.setItem("City", cityName);
-            sessionStorage.setItem("Country", countryCodel);
-            let iLon = response.lon;
-            let iLat = response.lat;
+            //sessionStorage.setItem("Country", countryCodel);
 
             $("#zomatoDiv").empty();
-            showTargetLocation(iLon, iLat);
+            showTargetLocation(long, lat);
+
+            emptyWeather();
+            let mainCelcius = (response.main.temp - 32) * 5 / 9;
+            let maxCelcius = (response.main.temp_max - 32) * 5 / 9;
+            let minCelcius = (response.main.temp_min - 32) * 5 / 9;
+            mainCelcius = mainCelcius.toFixed(2);
+            maxCelcius = maxCelcius.toFixed(2);
+            minCelcius = minCelcius.toFixed(2);
+            console.log(mainCelcius);
+            console.log(maxCelcius);
+            console.log(minCelcius);
+
+
+            //(78°F − 32) × 5/9 = 25.556°C
+
+            const date = new Date(response.dt * 1000);
+            const dateString = date.toDateString().toLocaleUpperCase();
+            // $("#city-name").text(`City Name: ${response.name}`);
+            // $("#city-id").text(`City ID: ${response.id}`);
+            emptyWeather();
+            $("#date").text(dateString);
+            $(".icon").append(`<img src="./assets/images/forecast/${response.weather[0].icon}.svg" alt="">  `);
+            $(".icon").append(`<p>${response.weather[0].description}</p>`);
+            $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
+            $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
+            $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
+
+            $("#celcius").click(function (e) {
+                $(".temperature").empty();
+                $(".temperature").append(`<div class="currentTemp">${mainCelcius}<sup>o</sup></div>`);
+                $(".temperature").append(`<div> Max: ${maxCelcius} <sup>o</sup></div> `);
+                $(".temperature").append(`<div> Min: ${minCelcius} <sup>o</sup></div>  `);
+                $("#celcius").addClass("active");
+                $("#fahrenheit").removeClass("active");
+
+            })
+            $("#fahrenheit").click(function (e) {
+                $(".temperature").empty();
+            $(".temperature").append(`<div class="currentTemp">${response.main.temp}º </div>`);
+                $(".temperature").append(`<div> Max: ${response.main.temp_max}º</div> `);
+                $(".temperature").append(`<div> Min: ${response.main.temp_min}º</div>  `);
+                $("#celcius").removeClass("active");
+                $("#fahrenheit").addClass("active");
+            })
+
+
         });
     }); // end locationIcon click
 
@@ -644,6 +736,54 @@ $(document).ready(function () {
         sessionStorage.setItem("City", cityName);
         sessionStorage.setItem("Country", countryCodel);
     });
+
+    // function weatherLocation() {
+
+    //         let mainCelcius = (response.main.temp - 32) * 5 / 9;
+    //         let maxCelcius = (response.main.temp_max - 32) * 5 / 9;
+    //         let minCelcius = (response.main.temp_min - 32) * 5 / 9;
+    //         mainCelcius = mainCelcius.toFixed(2);
+    //         maxCelcius = maxCelcius.toFixed(2);
+    //         minCelcius = minCelcius.toFixed(2);
+    //         console.log(mainCelcius);
+    //         console.log(maxCelcius);
+    //         console.log(minCelcius);
+
+
+    //         //(78°F − 32) × 5/9 = 25.556°C
+
+    //         const date = new Date(response.dt * 1000);
+    //         const dateString = date.toDateString().toLocaleUpperCase();
+    //         // $("#city-name").text(`City Name: ${response.name}`);
+    //         // $("#city-id").text(`City ID: ${response.id}`);
+    //         emptyWeather();
+    //         $("#date").text(dateString);
+    //         $(".icon").append(`<img src="./assets/images/forecast/${response.weather[0].icon}.svg" alt="">  `);
+    //         $(".icon").append(`<p>${response.weather[0].description}</p>`);
+    //         $(".temperature").append(`<div class="currentTemp">${response.main.temp}<sup>o</sup></div>`);
+    //         $(".temperature").append(`<div> Max: ${response.main.temp_max} <sup>o</sup></div> `);
+    //         $(".temperature").append(`<div> Min: ${response.main.temp_min} <sup>o</sup></div>  `);
+
+    //         $("#celcius").click(function (e) {
+    //             $(".temperature").empty();
+    //             $(".temperature").append(`<div class="currentTemp">${mainCelcius}<sup>o</sup></div>`);
+    //             $(".temperature").append(`<div> Max: ${maxCelcius} <sup>o</sup></div> `);
+    //             $(".temperature").append(`<div> Min: ${minCelcius} <sup>o</sup></div>  `);
+    //             $("#celcius").addClass("active");
+    //             $("#fahrenheit").removeClass("active");
+
+    //         })
+    //         $("#fahrenheit").click(function (e) {
+    //             $(".temperature").empty();
+    //         $(".temperature").append(`<div class="currentTemp">${response.main.temp}º </div>`);
+    //             $(".temperature").append(`<div> Max: ${response.main.temp_max}º</div> `);
+    //             $(".temperature").append(`<div> Min: ${response.main.temp_min}º</div>  `);
+    //             $("#celcius").removeClass("active");
+    //             $("#fahrenheit").addClass("active");
+    //         })
+
+
+    // };
 
     function apiWeather() {
         const apiKeyWeather = "abb73e61ebb1b7746ebb817ea591d018";
@@ -819,4 +959,9 @@ $(document).ready(function () {
         $("#weather-card a").attr("href", forecastURL);
     }
 
+
+
+
+
+ 
 });  // end onf document.ready
