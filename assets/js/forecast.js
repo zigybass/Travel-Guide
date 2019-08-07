@@ -77,6 +77,7 @@ $(document).ready(function(){
                                                          <div class="chartContainer">
                                                              <canvas id="chart${key}"></canvas>
                                                          </div>
+                                                         <div class="d-block d-sm-none arrows-icon"><i class="fas fa-arrows-alt-h"></i><div>
                                                      </div>
                                                  </div>    
                                              </div>`

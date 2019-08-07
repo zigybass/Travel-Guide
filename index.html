@@ -20,24 +20,11 @@
                 <div class="col">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         <a class="navbar-brand" href="#">Let's travel</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                </li>
-                            </ul>
-                        </div>
                     </nav>
                 </div>
             </div>
             <div class="row justify-content-md-center">
-                <div class="col-12 col-md-6">
+                <div class="col-12 col-md-7 col-lg-6">
                     <form>
                         <div class="form-group">
                             <input type="input" class="form-control" id="cityInput" placeholder="Enter City">
@@ -51,9 +38,15 @@
                         <button id="citySubmit" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
-                <div class="col-12 col-md-2 text-center location">
-                    <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
-                    <p>Use your current location</p>
+                <div class="col-12 col-md-3 col-lg-2 text-center location">
+                    <div class="row">
+                        <div class="col-5 col-md-12">
+                            <button type="submit" id="locationIcon"><i class="fas fa-crosshairs"></i></button>
+                        </div>
+                        <div class="col-7 col-md-12 location-text">
+                            <p>Use your current location</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -89,38 +82,38 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div id="currency-section" class="col-12 col-md-6">
                 <div class="card">
                     <div class="card-body currencyformal">
-                        <h5 class="card-title">Currency </h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Currency for the country</h6>
+                        <h5 class="card-title text-center">Currency </h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-center">Currency for the country</h6>
                         <p class="card-text">
                             <!--Currency Form below-->
                             <div class="row">
-                                <column class="col-6">
+                                <div class="col-6">
                                     <select class="form-row currency" id="baseCurrency">
                                         <option>Select Currency</option>
                                     </select>
-                                </column>
-                                <column class="col-6">
+                                </div>
+                                <div class="col-6">
                                     <input type="text" class="form-row" id="base"
                                         aria-label="Text input with dropdown button">
-                                </column>
+                                </div>
                             </div>
                             <div class="row">
-                                <column class="col-6">
+                                <div class="col-6">
                                     <select class="form-row currency" id="toCurrency">
                                         <option>Select Currency</option>
                                     </select>
-                                </column>
-                                <column class="col-6">
+                                </div>
+                                <div class="col-6">
                                     <input type="text" class="form-row" id="conversion"
                                         aria-label="Text input with dropdown button">
-                                </column>
+                                </div>
                             </div>
                     </div>
                     <button type="button" class="btn btn-primary m-3 col-11" id="convert">Convert</button>
-                    <button type="button" class="btn btn-secondary col-11" id="currSwitch">Switch
+                    <button type="button" class="btn btn-secondary ml-3 mr-3 col-11" id="currSwitch">Switch
                         Currencies</button>
                     <!--End Currency Form-->
                     </p>
@@ -335,7 +328,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body pt-0">
                             <h5 class="card-title">Input Language</h5>
                             <h6 class="card-subtitle mb-2 text-muted" id="inputLanguageDisplay">
                             </h6>
@@ -545,7 +538,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body border-white">
+                        <div class="card-body border-white pt-0">
                             <h5 class="card-title">Translation</h5>
                             <h6 class="card-subtitle mb-2 text-muted" id="outputLanguageDisplay">
                             </h6>
@@ -564,13 +557,13 @@
                     </div>
                 </div>
             </div>
-            <div class="row bg-white">
+            <div class="row bg-white previous-translation">
                 <div class="col">
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
-                                <div class="col">
-                                    <h4 class="m-1">Previous translations</h4>
+                                <div class="col text-left">
+                                    <h4>Previous translations</h4>
                                 </div>
                                 <div class="col">
                                     <button type="button" class="btn-sm float-right btn-light "
@@ -581,7 +574,7 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="list-group list-group-flush card-header" id="yourPreviousTranslations">
+                        <ul class="list-group list-group-flush card-header p-0" id="yourPreviousTranslations">
 
                         </ul>
                     </div>
@@ -614,7 +607,7 @@
     </div>
     <footer class="text-center">
         <a class="navbar-brand" href="./index.html">Let's travel</a>
-        <p>Work team!</p>
+
     </footer>
 
     <!--The end of zomato-->

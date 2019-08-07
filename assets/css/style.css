@@ -11,13 +11,13 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    padding-bottom: 70px;
+    padding-bottom: 50px;
     margin-bottom: 50px;
 }
 
 header form {
     padding-bottom: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     border-bottom: solid thin #FFF;
     text-align: center;
 }
@@ -55,11 +55,7 @@ button#citySubmit {
     background-color: #42CEC9;
 }
 
-#weather-section{
-    padding-top: 50px;
-    padding-bottom: 50px;
-    margin-bottom: 50px;
-}
+
 #weather-section .card {
     height: 100%;   
 }
@@ -70,15 +66,15 @@ button#citySubmit {
     text-transform: lowercase;
 }
 .currentTemp {
-    font-size: 55px;
+    font-size: 45px;
     font-weight: 300;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .currentTemp sup{
     font-size: 30px;
 }
 p{
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 300;
 }
 #weather-card a.btn{
@@ -87,6 +83,16 @@ p{
 #date {
     font-weight: 700;
     margin-bottom: 25px;
+    font-size: 18px;
+    padding-top: 13px;
+}
+#weather-section{
+    background: #f2f2f2;
+    margin-bottom: 30px;
+}
+#weather-section .card{
+    background: transparent;
+    border:none;
 }
 .icon img{
     width: 130px;
@@ -96,7 +102,16 @@ p{
     width: 55px;
     height: 55px;
 }
-
+#currency-section .card{
+    border: none;
+}
+#currency-section input{
+    border: solid thin #ccc;
+    border-radius: 5px;
+    margin-top: 3px;
+    padding: 0 5px;
+    width: 100%;
+}
 .btn-primary {
     color: #fff;
     background-color: #42CEC9;
@@ -191,7 +206,7 @@ button#locationIcon i.fas {
     background-size: cover;
     background-position: center center;
     text-align: center;
-    padding: 40px 20px 100px;
+    padding: 40px 20px 40px;
     font-family: 'Shadows Into Light', cursive;
     color: #FFF;
 }
@@ -201,9 +216,38 @@ button#locationIcon i.fas {
 }
 
 #translate-section .container {
-    margin-top: -50px;
+    margin-top: 30px;
 }
-
+#translate-section .card-title {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: center;
+}
+#translate-section .form-group label{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 15px;
+    min-height: 18px;
+}
+.previous-translation{
+    margin-top: 20px;
+}
+.previous-translation .individual-translations .form-row{
+    text-align: left;
+}
+.previous-translation h4{
+    font-weight: 600;
+    margin-top: 10px;
+    font-size: 18px;
+}
+.previous-translation  .form-row{
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: 12px;
+    padding-left: 10px
+}
 button#deleteIndividual {
     border-color: #42CEC9;
     color: white;
@@ -221,6 +265,11 @@ button#clearAllTranslations i {
     padding-top: 40px;
     padding-bottom: 60px;
 }
+#zomato-section h3{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 30px;
+}
 footer{
     background: #1C7E7A;
     padding: 20px 30px;
@@ -230,6 +279,9 @@ footer a.navbar-brand{
     font-family: 'Shadows Into Light', cursive;
     color: #FFF;
     font-size: 50px;
+}
+.forecast-page header{
+    margin-bottom: 20px;
 }
 .forecast-page header h1{
     color: #42CEC9;
@@ -246,7 +298,7 @@ footer a.navbar-brand{
 
 .day:nth-child(even){
     background: #f2f2f2;
-    padding: 60px 0;
+    padding: 40px 15px 50px;
 }
 .day:last-child{
     margin-bottom: 0;
@@ -288,7 +340,7 @@ footer a.navbar-brand{
     border-color: #42CEC9;
 }
 .temp-buttons button {
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .temp-buttons button.active{
@@ -297,6 +349,24 @@ footer a.navbar-brand{
 
 .chartContainer {
     position: relative;
+}
+.location-text{
+    text-align: left;
+    padding-left: 0;
+}
+.location-text p{
+    padding-top: 22px;
+}
+.arrows-icon {
+    position: absolute;
+    right: 20px;
+}
+.arrows-icon i{
+    color: #495057;
+}
+
+.temp-buttons{
+    margin-right: 30px;
 }
 
 @media screen and (max-width: 768px) {
@@ -334,6 +404,27 @@ footer a.navbar-brand{
     .info-container {
         overflow: none;
     }
+    .currentTemp {
+        font-size: 40px;
+    }
+    header {
+        padding-bottom: 70px;
+        margin-bottom: 50px;
+    }
+    #weather-section .card, #currency-section .card{
+        border: 1px solid #ced4da;
+    }
+    .icon img {
+        width: 100px;
+        height: 100px;
+    }
+    .location-text {
+        text-align: center;
+    }
+    .day:nth-child(even){
+        background: #f2f2f2;
+        padding: 60px 0;
+    }
 }
 
 @media only screen and (min-width: 991px) {
@@ -341,12 +432,20 @@ footer a.navbar-brand{
         width: 80px;
         height: 80px;
     }
+    #translate-section .title{
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
     .hour-forecast img {
         width: 100px;
         height: 100px;
+    }
+    .icon img {
+        width: 120px;
+        height: 120px;
     }
 }
 
