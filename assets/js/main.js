@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    // $(".col-12").attr("class", "text-center");
-
     const countryCode = {
         'AF': 'Afghanistan',
         'AX': 'Aland Islands',

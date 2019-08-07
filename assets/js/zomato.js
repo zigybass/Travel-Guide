@@ -30,7 +30,6 @@ function showTargetLocation(lon, lat) {
          `);
         if (i >= 5) break;
       }
-      $(".card").attr("align", "center");
     }
   });
 };
