@@ -247,6 +247,8 @@ $(document).ready(function () {
         'ZW': 'Zimbabwe',
     }
 
+    
+
     let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode,lat,lon";
     $.ajax({
         url: queryURL,
@@ -615,7 +617,7 @@ $(document).ready(function () {
         $("#cityName").html("<h3> Welcome to " + cityName + "</h3>");
         apiWeather();
         urlQuery();
-        currencyAPI();
+        //currencyAPI();
         $("#base").val("");
         $("#conversion").val("");
         sessionStorage.setItem("City", cityName);
@@ -630,6 +632,7 @@ $(document).ready(function () {
 
         sessionStorage.setItem("City", cityName);
         sessionStorage.setItem("Country", countryCodel);
+        currencyAPI();
 
         $.ajax({
             url: weatherURL,
@@ -713,7 +716,13 @@ $(document).ready(function () {
     //Currency API starts
     function currencyAPI() {
 
-        $("baseCurrency").val()
+        
+
+        let userCurr = "USD";
+        let countryCurr = countryIdToCurrencyId[countryCodel];
+
+        $("#baseCurrency").val(userCurr);
+        $("#toCurrency").val(countryCurr);
 
         // Builds AJAX URL:
         const baseUrl = "https://openexchangerates.org/api/latest.json?";
@@ -735,54 +744,59 @@ $(document).ready(function () {
             const currencyIdArray = Object.keys(response.rates);
             console.log(currencyIdArray);
 
+            function currencyConverter(currNum) {
+                let ratio = response.rates[countryCurr]
 
-            // Converts input country data to country's currency 
-            let userCurr = "USD";
-            let countryCurr = countryIdToCurrencyId[countryCodel];
+                console.log(currNum, countryCode, ratio);
 
-            let flipCounter = 3;
-
-            $("#baseCurrency").val(userCurr);
-            $("#toCurrency").val(countryCurr);
-
-            // Converts USD to target Currency.
-            function currencyConverter(currNum, countryCode) {
-                let ratio = response.rates[countryCode]
-                if (flipCounter % 2 !== 0) {
-                    return currNum * ratio;
+                if ( $("#baseCurrency option:selected").val() == "USD") {
+                    return currNum * ratio
                 } else {
                     return currNum / ratio;
                 }
+
+                // return countryCode === "USD" ? currNum * (ratio / 1)
+                //\  : currNum * ratio
             };
 
-            // WIP: converts currencies on click. 
+            // Converts currencies on click. 
             $("#convert").on("click", function (e) {
                 e.preventDefault();
+    
                 const baseCurr = $("#base").val();
-                const countryCode = $("#toCurrency option:selected").val()
-                let convertedRate = currencyConverter(baseCurr, countryCode);
+                //const countryCode = $("#toCurrency option:selected").val();
+                console.log(countryCode)
+                let convertedRate = currencyConverter(baseCurr, countryCurr);
+
                 $("#conversion").val(convertedRate.toFixed(2));
-                //$("#target").text(`<input type="text" ${currencyConverter(baseCurr, ratio)} />`)
-                console.log(baseCurr);
             });
 
             $("#currSwitch").on("click", function (e) {
                 e.preventDefault();
-                const b = $("#baseCurrency option:selected").val()
-                const t = $("#toCurrency option:selected").val()
+
+                $("#base").val("");
                 $("#conversion").val("")
-                $("#base").val("")
-                flipCounter++;
-                if (flipCounter % 2 == 0) {
-                    $("#baseCurrency").val(t);
-                    $("#toCurrency").val(b);
-                } else {
-                    $("#baseCurrency").val(b);
-                    $("#toCurrency").val(t);
-                }
-                //let target = $("#target").val();
-                //$("#base").text(flipConverter(target));
-                //console.log(target);
+
+                let currentValue = $("#base").val()
+                let toValue = $("#conversion").val()
+                let holder
+
+                let currentValue2 = $("#baseCurrency option:selected").val()
+                let toValue2 = $("#toCurrency option:selected").val()
+                let holder2
+
+                holder = currentValue
+                currentValue = toValue
+                toValue = holder
+
+                holder2 = currentValue2
+                currentValue2 = toValue2
+                toValue2 = holder2
+
+                $("#base").val(currentValue)
+                $("#conversion").val(toValue)
+                $("#baseCurrency").val(currentValue2)
+                $("#toCurrency").val(toValue2)
             })
 
 
