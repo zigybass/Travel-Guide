@@ -145,83 +145,7 @@
             <div class="row bg-white">
                 <div class="col-12 col-md-6">
                     <div class="card h-100 border-white">
-                        <select class="d-block d-sm-none form-control mb-3" id="exampleFormControlSelect2">
-                                    <option disabled selected value> Select language --
-                                    </option>
-                                    <option class="dropdown-input-language" id="Arabic" data-type="ar"> <a
-                                            class="dropdown-item">Arabic</a>
-                                    </option>
 
-                                    <option class="dropdown-input-language" id="Chinese (Simplified)"
-                                        data-type="zh"><a class="dropdown-item">Chinese(Simplified)</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Chinese (Traditional)"
-                                        data-type="zh-TW"><a class="dropdown-item">Chinese(Traditional)</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Czech" data-type="cs"><a
-                                            class="dropdown-item">Czech</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Danish" data-type="da"><a
-                                            class="dropdown-item">Danish</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Dutch" data-type="nl"><a
-                                            class="dropdown-item">Dutch</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="English" data-type="en"><a
-                                            class="dropdown-item">English</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Finnish" data-type="fi"><a
-                                            class="dropdown-item">Finnish</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="French" data-type="fr"><a
-                                            class="dropdown-item">French</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="German" data-type="de"><a
-                                            class="dropdown-item">German</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Greek" data-type="el"><a
-                                            class="dropdown-item">Greek</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Hebrew" data-type="he"><a
-                                            class="dropdown-item">Hebrew</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Hindi" data-type="hi"><a
-                                            class="dropdown-item">Hindi</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Hungarian" data-type="hu"><a
-                                            class="dropdown-item">Hungarian</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Italian" data-type="it"><a
-                                            class="dropdown-item">Italian</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Japanese" data-type="ja"><a
-                                            class="dropdown-item">Japanese</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Korean" data-type="ko"><a
-                                            class="dropdown-item">Korean</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Norwegian Bokmal" data-type="nb">
-                                        <a class="dropdown-item">Norwegian-Bokmal</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Polish" data-type="pl"><a
-                                            class="dropdown-item">Polish</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Portuguese" data-type="pt">
-                                        <a class="dropdown-item">Portuguese</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Russian" data-type="ru"><a
-                                            class="dropdown-item">Russian</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Spanish" data-type="es"><a
-                                            class="dropdown-item">Spanish</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Swedish" data-type="sv"><a
-                                            class="dropdown-item">Swedish</a>
-                                    </option>
-                                    <option class="dropdown-input-language" id="Turkish" data-type="tr"><a
-                                            class="dropdown-item">Turkish</a>
-                                    </option>
-                        </select>
                         <div class="dropdown d-none d-sm-block">
                             <button class="btn btn-secondary dropdown-toggle m-3 col-11" type="button"
                                 id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -310,11 +234,88 @@
                         </div>
                         <div class="card-body pt-0">
                             <h5 class="card-title">Input Language</h5>
-                            <h6 class="card-subtitle mb-2 text-muted" id="inputLanguageDisplay">
+                            <h6 class="card-subtitle mb-2 text-muted d-none d-sm-block" id="inputLanguageDisplay">
                             </h6>
 
                             <div class="form-group">
-                                <label id="label-input-language" for="exampleFormControlTextarea1"></label>
+                                <label class="d-none d-sm-block" id="label-input-language" for="exampleFormControlTextarea1"></label>
+                                <select class="d-block d-sm-none form-control mb-3" id="mobileInput">
+                                        <option selected id="English" value="en"> English --
+                                        </option>
+                                        <option class="dropdown-input-language" id="Arabic" value="ar"> <a
+                                                class="dropdown-item">Arabic</a>
+                                        </option>
+    
+                                        <option class="dropdown-input-language" id="Chinese (Simplified)"
+                                            value="zh"><a class="dropdown-item">Chinese(Simplified)</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Chinese (Traditional)"
+                                            value="zh-TW"><a class="dropdown-item">Chinese(Traditional)</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Czech" value="cs"><a
+                                                class="dropdown-item">Czech</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Danish" value="da"><a
+                                                class="dropdown-item">Danish</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Dutch" value="nl"><a
+                                                class="dropdown-item">Dutch</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="English" value="en"><a
+                                                class="dropdown-item">English</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Finnish" value="fi"><a
+                                                class="dropdown-item">Finnish</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="French" value="fr"><a
+                                                class="dropdown-item">French</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="German" value="de"><a
+                                                class="dropdown-item">German</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Greek" value="el"><a
+                                                class="dropdown-item">Greek</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Hebrew" value="he"><a
+                                                class="dropdown-item">Hebrew</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Hindi" value="hi"><a
+                                                class="dropdown-item">Hindi</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Hungarian" value="hu"><a
+                                                class="dropdown-item">Hungarian</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Italian" value="it"><a
+                                                class="dropdown-item">Italian</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Japanese" value="ja"><a
+                                                class="dropdown-item">Japanese</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Korean" value="ko"><a
+                                                class="dropdown-item">Korean</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Norwegian Bokmal" value="nb">
+                                            <a class="dropdown-item">Norwegian-Bokmal</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Polish" value="pl"><a
+                                                class="dropdown-item">Polish</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Portuguese" value="pt">
+                                            <a class="dropdown-item">Portuguese</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Russian" value="ru"><a
+                                                class="dropdown-item">Russian</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Spanish" value="es"><a
+                                                class="dropdown-item">Spanish</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Swedish" value="sv"><a
+                                                class="dropdown-item">Swedish</a>
+                                        </option>
+                                        <option class="dropdown-input-language" id="Turkish" value="tr"><a
+                                                class="dropdown-item">Turkish</a>
+                                        </option>
+                            </select>
                                 <textarea class="form-control" id="inputTextArea" rows="3"></textarea>
                             </div>
                         </div>
@@ -322,82 +323,7 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <div class="card h-100 border-white">
-                        <select class="d-block d-sm-none form-control mb-3" class="form-controlHere" id="exampleFormControlSelect2">
-                                    <option disabled selected value> Select language --
-                                    </option>
-                                    <option class="dropdown-output-language" id="Arabic" data-type="ar"> <a
-                                            class="dropdown-item">Arabic</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Chinese (Simplified)"
-                                        data-type="zh"><a class="dropdown-item">Chinese(Simplified)</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Chinese (Traditional)"
-                                        data-type="zh-TW"><a class="dropdown-item">Chinese(Traditional)</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Czech" data-type="cs"><a
-                                            class="dropdown-item">Czech</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Danish" data-type="da"><a
-                                            class="dropdown-item">Danish</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Dutch" data-type="nl"><a
-                                            class="dropdown-item">Dutch</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="English" data-type="en"><a
-                                            class="dropdown-item">English</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Finnish" data-type="fi"><a
-                                            class="dropdown-item">Finnish</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="French" data-type="fr"><a
-                                            class="dropdown-item">French</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="German" data-type="de"><a
-                                            class="dropdown-item">German</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Greek" data-type="el"><a
-                                            class="dropdown-item">Greek</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Hebrew" data-type="he"><a
-                                            class="dropdown-item">Hebrew</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Hindi" data-type="hi"><a
-                                            class="dropdown-item">Hindi</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Hungarian" data-type="hu"><a
-                                            class="dropdown-item">Hungarian</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Italian" data-type="it"><a
-                                            class="dropdown-item">Italian</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Japanese" data-type="ja"><a
-                                            class="dropdown-item">Japanese</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Korean" data-type="ko"><a
-                                            class="dropdown-item">Korean</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Norwegian Bokmal" data-type="nb">
-                                        <a class="dropdown-item">Norwegian-Bokmal</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Polish" data-type="pl"><a
-                                            class="dropdown-item">Polish</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Portuguese" data-type="pt">
-                                        <a class="dropdown-item">Portuguese</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Russian" data-type="ru"><a
-                                            class="dropdown-item">Russian</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Spanish" data-type="es"><a
-                                            class="dropdown-item">Spanish</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Swedish" data-type="sv"><a
-                                            class="dropdown-item">Swedish</a>
-                                    </option>
-                                    <option class="dropdown-output-language" id="Turkish" data-type="tr"><a
-                                            class="dropdown-item">Turkish</a>
-                                    </option>
-                        </select>
+
                         <div class="dropdown d-none d-sm-block">
                             <button class="btn btn-secondary dropdown-toggle m-3 col-11" type="button"
                                 id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true"
@@ -489,14 +415,93 @@
                             </h6>
 
                             <div class="form-group">
-                                <label id="label-output-language" for="exampleFormControlTextarea1"></label>
+                                <label class="d-none d-sm-block" id="label-output-language" for="exampleFormControlTextarea1"></label>
+                                <select class="d-block d-sm-none form-control mb-3"  id="mobileOuput">
+                                        <option disabled selected value> Select language --
+                                        </option>
+                                        <option class="dropdown-output-language" id="Arabic" value="ar"> <a
+                                                class="dropdown-item">Arabic</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Chinese (Simplified)"
+                                            value="zh"><a class="dropdown-item">Chinese(Simplified)</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Chinese (Traditional)"
+                                            value="zh-TW"><a class="dropdown-item">Chinese(Traditional)</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Czech" value="cs"><a
+                                                class="dropdown-item">Czech</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Danish" value="da"><a
+                                                class="dropdown-item">Danish</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Dutch" value="nl"><a
+                                                class="dropdown-item">Dutch</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="English" value="en"><a
+                                                class="dropdown-item">English</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Finnish" value="fi"><a
+                                                class="dropdown-item">Finnish</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="French" value="fr"><a
+                                                class="dropdown-item">French</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="German" value="de"><a
+                                                class="dropdown-item">German</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Greek" value="el"><a
+                                                class="dropdown-item">Greek</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Hebrew" value="he"><a
+                                                class="dropdown-item">Hebrew</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Hindi" value="hi"><a
+                                                class="dropdown-item">Hindi</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Hungarian" value="hu"><a
+                                                class="dropdown-item">Hungarian</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Italian" value="it"><a
+                                                class="dropdown-item">Italian</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Japanese" value="ja"><a
+                                                class="dropdown-item">Japanese</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Korean" value="ko"><a
+                                                class="dropdown-item">Korean</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Norwegian Bokmal" value="nb">
+                                            <a class="dropdown-item">Norwegian-Bokmal</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Polish" value="pl"><a
+                                                class="dropdown-item">Polish</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Portuguese" value="pt">
+                                            <a class="dropdown-item">Portuguese</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Russian" value="ru"><a
+                                                class="dropdown-item">Russian</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Spanish" value="es"><a
+                                                class="dropdown-item">Spanish</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Swedish" value="sv"><a
+                                                class="dropdown-item">Swedish</a>
+                                        </option>
+                                        <option class="dropdown-output-language" id="Turkish" value="tr"><a
+                                                class="dropdown-item">Turkish</a>
+                                        </option>
+                            </select>
                                 <textarea readonly class="form-control bg-white" id="outputTextArea"
                                     rows="3"></textarea>
                             </div>
 
 
-                            <button type="button" class="btn btn-secondary btn-lg btn-block"
+                            <button type="button" class="btn btn-secondary btn-lg btn-block d-none d-sm-block"
                                 id="translateButton">Translate</button>
+
+                                <button type="button" class="btn btn-secondary btn-lg btn-block d-block d-sm-none"
+                                id="mobileTranslateButton">Mobile Translate</button>    
 
                         </div>
                     </div>
