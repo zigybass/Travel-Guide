@@ -87,6 +87,38 @@ $("#translateButton").on("click", function () {
     }
 });
 
+// Mobile
+$("#mobileInput").on("click", function () {
+    inputLanguageSelection = $(this).attr("id");
+    inputLanguageSelectionAbbreviation = $(this).attr("data-type");
+    $("#label-input-language").empty();
+    $("#label-input-language").append(inputLanguageSelection);
+    inputReady = true;
+});
+
+$("#mobileOutput").on("click", function () {
+    outputLanguageSelection = $(this).attr("id");
+    outputLanguageSelectionAbbreviation = $(this).attr("data-type");
+    $("#label-output-language").empty();
+    $("#label-output-language").append(outputLanguageSelection);
+    outputReady = true;
+});
+
+$("#mobileTranslateButton").on("click", function () {
+    inputLanguageSelectionAbbreviation = $("#mobileInput").val();
+    outputLanguageSelectionAbbreviation = $("#mobileOuput").val();
+    console.log(inputLanguageSelectionAbbreviation);
+    console.log(outputLanguageSelectionAbbreviation);
+    const inputText = $("#inputTextArea").val();
+    $("#outputTextArea").empty();
+    $("#outputText").empty();
+
+    const abbreviationToAPI = (inputLanguageSelectionAbbreviation + "-" + outputLanguageSelectionAbbreviation);
+    
+    translation(inputText, abbreviationToAPI);
+
+});
+
 function translation(inputText, abbreviationToAPI) {
     const data = {
         "text": [inputText],
