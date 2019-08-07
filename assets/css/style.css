@@ -147,10 +147,6 @@ button#locationIcon i.fas {
     margin: 7px;
 }
 
-#exampleFormControlSelect2{
-    height: 200px !important;
-}
-
 
 #convert {
     color: #fff;
@@ -194,10 +190,6 @@ button#locationIcon i.fas {
 #translateButton {
     background-color: #42CEC9;
     border-color: #42CEC9;
-}
-#exampleFormControlSelect2{
-    height: 200px !important;
-    border: none;
 }
 
 #translate-section .title{
@@ -424,6 +416,13 @@ footer a.navbar-brand{
     .day:nth-child(even){
         background: #f2f2f2;
         padding: 60px 0;
+    }
+    #exampleFormControlSelect2{
+        height: 200px !important;
+        border: none;
+    }    
+    #exampleFormControlSelect2{
+        height: 200px !important;
     }
 }
 
