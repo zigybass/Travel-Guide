@@ -443,6 +443,10 @@ footer a.navbar-brand{
         width: 100px;
         height: 100px;
     }
+    .icon img {
+        width: 120px;
+        height: 120px;
+    }
 }
 
 
