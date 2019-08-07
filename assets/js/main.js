@@ -1,3 +1,22 @@
+
+$("#locationIcon").on("click", function(){
+    getLocation();
+   });
+   function getLocation() {
+       if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(showPosition);
+       } else {
+         x.innerHTML = "Geolocation is not supported by this browser.";
+       }
+     };
+   
+     function showPosition(position) {
+       console.log("Latitude: " + position.coords.latitude + 
+       "Longitude " + position.coords.longitude) ;
+     };
+
+
+
 $(document).ready(function () {
     const countryCode = {
         'AF': 'Afghanistan',
@@ -246,6 +265,10 @@ $(document).ready(function () {
         'ZM': 'Zambia',
         'ZW': 'Zimbabwe',
     }
+
+
+    
+
 
     let queryURL = "http://ip-api.com/json/?fields=city,country,countryCode,lat,lon";
     $.ajax({
