@@ -1,5 +1,7 @@
 # Team-Red-Project-One
 
+Link here: https://zigybass.github.io/Trivia-game/
+
 ## Colaboration
 
 This project was a group collaboration between these 5 people:
