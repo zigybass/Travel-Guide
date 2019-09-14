@@ -1,6 +1,6 @@
 # Team-Red-Project-One
 
-Link here: https://zigybass.github.io/Trivia-game/
+Link here: https://zigybass.github.io/Travel-Guide/
 
 ## Colaboration
 
