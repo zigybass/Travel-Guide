@@ -1,4 +1,4 @@
-# Team-Red-Project-One
+# Travel Guide
 
 Link here: https://zigybass.github.io/Travel-Guide/
 
