@@ -16,7 +16,7 @@ This project was a group collaboration between these 5 people:
 
 ## Goal of the Project
 
-As a Traveler, I want to a web-based application which will detect my location or enter the location that I am travelling to or I am planning on traveling to and a have a single page displaying every basic information that the I will need. 
+As a Traveler, I want to have an app that uses my location to display different things I need in the place I'm in. 
 
 ### Basic Information that I will need
 •	Get my current location/ Input the location that I want details of.
