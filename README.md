@@ -11,7 +11,7 @@ This project was a group collaboration between these 5 people:
 - Coti Garcia [https://github.com/coti-garcia]
 - Michael McCarty [https://github.com/michaelmccarty]
 
-<img width="1293" alt="Travel_Guide" src="https://user-images.githubusercontent.com/50716272/66876099-894db600-ef7e-11e9-86a5-6b04d8c4faab.png">
+<img width="700" alt="Travel_Guide" src="https://user-images.githubusercontent.com/50716272/66876099-894db600-ef7e-11e9-86a5-6b04d8c4faab.png">
 
 
 ## Goal of the Project
