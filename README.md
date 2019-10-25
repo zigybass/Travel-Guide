@@ -2,9 +2,7 @@
 
 Link here: https://zigybass.github.io/Travel-Guide/
 
-## Colaboration
-
-This project was a group collaboration between these 5 people:
+## Team Members:
 - Chris Zeigler [https://github.com/zigybass]
 - Krithica Subramanian [https://github.com/krithis2991]
 - Horacio Garcia [https://github.com/garciahor1]
