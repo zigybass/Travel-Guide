@@ -4,7 +4,7 @@ Link here: https://zigybass.github.io/Travel-Guide/
 
 ## Team Members:
 - Chris Zeigler [https://github.com/zigybass]
-- Krithica Subramanian [https://github.com/krithis2991]
+- Krithika Subramanian [https://github.com/krithis2991]
 - Horacio Garcia [https://github.com/garciahor1]
 - Coti Garcia [https://github.com/coti-garcia]
 - Michael McCarty [https://github.com/michaelmccarty]
